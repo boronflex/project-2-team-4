@@ -58,6 +58,10 @@ Philosphy- fully fleshed out routing handler, includes full interaction with adm
 *A carpool section*
 - emulates the bus section
 
+*school section*
+- name of school
+- stage of school- elementary, middle, high
+
 *A rider section*
 - rider login
 - adds option to carpool
