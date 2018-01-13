@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/boronflex/project-2-team-4/issues"
   },
-  "homepage": "https://github.com/boronflex/project-2-team-4#readme"
+  "homepage": "https://github.com/boronflex/project-2-team-4#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.15.0"
+  }
 }
