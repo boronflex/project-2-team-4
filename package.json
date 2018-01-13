@@ -1,0 +1,22 @@
+{
+  "name": "project-2-team-4",
+  "version": "1.0.0",
+  "description": "bus app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boronflex/project-2-team-4.git"
+  },
+  "keywords": [
+    "bus"
+  ],
+  "author": "kvp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boronflex/project-2-team-4/issues"
+  },
+  "homepage": "https://github.com/boronflex/project-2-team-4#readme"
+}
