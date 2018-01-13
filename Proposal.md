@@ -1,4 +1,4 @@
-#The goal of our app is to create school bus tracking app.
+# The goal of our app is to create school bus tracking app.
 
 # Name:
 TBD
