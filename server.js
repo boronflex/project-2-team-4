@@ -4,26 +4,35 @@ const bodyParser = require("body-parser");
 const routes = require("./controllers/busController.js")
 const app = express();
 const path = require("path");
+const db = require("./models");
+const exphbs = require("express-handlebars");
+const sequelize = require("sequelize");
+const PORT = process.env.PORT || 3000;
 
-var exphbs = require("express-handlebars");
 
-const port = 3000;
-
-app.use(express.static(path.join(__dirname, '/public')));
-
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+// Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
-
-app.engine("handlebars", exphbs({
-  defaultLayout: "main"
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.text());
+app.use(bodyParser.json({
+  type: "application/vnd.api+json"
 }));
 
-app.set("view engine", "handlebars");
+// Static directory
+app.use(express.static("public"));
 
-app.use("/", routes);
+// Routes
+// =============================================================
+require("./routes/api-routes.js")(app);
 
-app.listen(port);
-
-console.log("listening on port:", port);
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({
+  force: true
+}).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
