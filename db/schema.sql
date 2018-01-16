@@ -4,8 +4,8 @@ USE busapp_db;
 
 CREATE TABLE bus 
 (
-    id INT(4) NOT NULL AUTO_INCREMENT,
-    bus_number INT(4) NOT NULL,
+    id INT(20) NOT NULL AUTO_INCREMENT,
+    bus_number INT(20) NOT NULL,
     bus_driver VARCHAR(100) NOT NULL,
     riders VARCHAR(100) NOT NULL,
 	capacity INT(100) NOT NULL,
@@ -15,8 +15,8 @@ CREATE TABLE bus
     
 CREATE TABLE student
 (
-	id INT(100) NOT NULL AUTO_INCREMENT,
-    bus_number INT(4) NOT NULL,
+	id INT(20) NOT NULL AUTO_INCREMENT,
+    bus_number INT(20) NOT NULL,
     student_last_name VARCHAR(100) NOT NULL,
     student_first_name VARCHAR(100) NOT NULL,
     gender VARCHAR(20) NOT NULL,
