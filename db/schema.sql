@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS busapp_db
 CREATE DATABASE busapp_db;
-USE student_tracker;
+USE busapp_db;
 
 CREATE TABLE bus 
 (
