@@ -13,6 +13,11 @@ module.exports = function( sequelize, DataTypes ) {
       type: DataTypes.STRING( 50 ),
 
     },
+    assigned_route: {
+      allowNull: false,
+      type: DataTypes.INTEGER( 11 ),
+
+    },
     gender: {
       allowNull: false,
       type: DataTypes.STRING( 11 ),
