@@ -1,6 +1,4 @@
-// Requiring our models
 var db = require( "../models" );
-// var Bus = require("../models/busModel.js");
 
 // Routes
 // =============================================================
@@ -70,36 +68,36 @@ module.exports = function( app ) {
     } );
   } );
 
+  // PUT route for updating students. We can get the updated student data from req.body
+  app.put( "/api/students", function( req, res ) {
 
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.Student.update( {
+        student_last_name: req.body.student_last_name,
+        student_first_name: req.body.student_first_name,
+        gender: req.body.gender,
+        guardian_name: req.body.guardian_name,
+        guardian_email: req.body.guardian_email,
+        address_num: req.body.address_num,
+        address_stname: req.body.address_stname,
+        City: req.body.City,
+        State: req.body.State,
+        Zipcode: req.body.Zipcode,
+        Busrider: req.body.Busrider
+      }, {
+        where: {
+          id: req.body.id
+        }
+      } ).then( function( dbStu ) {
+        res.json( dbStu );
+      } )
+      .catch( function( err ) {
+        // Whenever a validation or flag fails, an error is thrown
+        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        res.json( err );
+      } );
+  } );
 
 
 }; //end module.exports
-
-
-
-
-//
-
-//
-//   // PUT route for updating todos. We can get the updated todo data from req.body
-//   app.put("/api/todos", function(req, res) {
-//
-//     // Update takes in an object describing the properties we want to update, and
-//     // we use where to describe which objects we want to update
-//     db.Todo.update({
-//       text: req.body.text,
-//       complete: req.body.complete
-//     }, {
-//       where: {
-//         id: req.body.id
-//       }
-//     }).then(function(dbTodo) {
-//       res.json(dbTodo);
-//     })
-//     .catch(function(err) {
-//       // Whenever a validation or flag fails, an error is thrown
-//       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-//       res.json(err);
-//     });
-//   });
-// };
