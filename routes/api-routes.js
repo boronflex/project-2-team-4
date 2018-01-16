@@ -10,11 +10,26 @@ module.exports = function( app ) {
   app.get( "/api/buses", function( req, res ) {
     // findAll returns all entries for a table when used with no options
     db.Bus.findAll( {} ).then( function( dbBus ) {
-      console.log( "query happened" );
+      console.log( "bus query happened" );
       // We have access to the buses as an argument inside of the callback function
       // res.render( "index" );
 
       res.json( dbBus );
+
+    } );
+  } );
+
+
+
+  // GET route for getting all of the students
+  app.get( "/api/students", function( req, res ) {
+    // findAll returns all entries for a table when used with no options
+    db.Student.findAll( {} ).then( function( dbStu ) {
+      console.log( "student query happened" );
+      // We have access to the buses as an argument inside of the callback function
+      // res.render( "index" );
+
+      res.json( dbStu );
 
     } );
   } );
