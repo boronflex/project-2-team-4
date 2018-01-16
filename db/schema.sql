@@ -8,7 +8,7 @@ CREATE TABLE bus
     bus_number INT(20) NOT NULL,
     bus_driver VARCHAR(100) NOT NULL,
     riders VARCHAR(100) NOT NULL,
-	capacity INT(100) NOT NULL,
+	capacity INT(20) NOT NULL,
     home_base VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
     );
@@ -27,7 +27,7 @@ CREATE TABLE student
     address_stname VARCHAR(100) NOT NULL,
     city VARCHAR(100) NOT NULL,
     st VARCHAR(2) NOT NULL,
-	zipcode INT(10) NOT NULL,
+	zipcode INT(20) NOT NULL,
     bus_rider BOOLEAN DEFAULT FALSE
     PRIMARY KEY (id)
     );
