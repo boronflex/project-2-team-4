@@ -1,23 +1,23 @@
 // Requiring our models
-var db = require("../models");
+var db = require( "../models" );
 // var Bus = require("../models/busModel.js");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function( app ) {
 
   // GET route for getting all of the buses
-  app.get("/api/buses", function(req, res) {
+  app.get( "/api/buses", function( req, res ) {
     // findAll returns all entries for a table when used with no options
-    db.Bus.findAll({}).then(function(dbBus) {
-      console.log("query happened");
+    db.Bus.findAll( {} ).then( function( dbBus ) {
+      console.log( "query happened" );
       // We have access to the buses as an argument inside of the callback function
-      res.render("index", hbsObject);
+      // res.render( "index" );
 
-      res.json(dbBus);
+      res.json( dbBus );
 
-    });
-  });
+    } );
+  } );
 
 
 }; //end module.exports

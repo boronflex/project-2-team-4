@@ -1,7 +1,7 @@
-const express = require("express");
+const express = require( "express" );
 const router = express.Router();
-const bus = require("../models/busModel.js");
-const rider = require("../models/rider.js");
+const bus = require( "../models/busModel.js" );
+// const rider = require( "../models/rider.js" );
 
 
 // router.get("/", function(req, res) {

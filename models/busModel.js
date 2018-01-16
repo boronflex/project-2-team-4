@@ -1,26 +1,35 @@
-module.exports = function(sequelize, DataTypes) {
+var Sequelize = require( "sequelize" );
 
-  var Bus = sequelize.define('bus', {
+module.exports = function( sequelize, DataTypes ) {
+
+  var Bus = sequelize.define( 'Bus', {
     bus_number: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+
     },
     bus_driver: {
       allowNull: false,
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+
     },
     riders: {
       allowNull: false,
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+
     },
     capacity: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+
     },
     home_base: {
       allowNull: false,
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+
     }
-  });
-  return Buses;
+  }, {
+    timestamps: false
+  } );
+  return Bus;
 };
