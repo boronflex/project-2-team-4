@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS busapp_db;
 CREATE DATABASE busapp_db;
 USE busapp_db;
