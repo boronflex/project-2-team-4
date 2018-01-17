@@ -13,11 +13,6 @@ module.exports = function( sequelize, DataTypes ) {
       type: DataTypes.STRING( 50 )
 
     },
-    assigned_route: {
-      allowNull: false,
-      type: DataTypes.INTEGER( 11 )
-
-    },
     gender: {
       allowNull: false,
       type: DataTypes.STRING( 11 )
@@ -46,7 +41,7 @@ module.exports = function( sequelize, DataTypes ) {
 
     },
 
-    Busrider: {
+    busrider: {
       allowNull: false,
       type: DataTypes.BOOLEAN
 
@@ -56,8 +51,7 @@ module.exports = function( sequelize, DataTypes ) {
   } );
 
   Student.associate = function(models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
+
     Student.belongsTo(models.Bus, {
       // foreignKey: {
       //   allowNull: false

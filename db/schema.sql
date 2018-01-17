@@ -51,7 +51,7 @@ CREATE TABLE student
     -- city VARCHAR(40) NOT NULL,
     -- st VARCHAR(40) NOT NULL,
 	-- zipcode INT(4) NOT NULL,
-    bus_rider BOOLEAN DEFAULT FALSE,
+    busrider BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (id)
     );
 
