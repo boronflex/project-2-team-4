@@ -54,5 +54,16 @@ module.exports = function( sequelize, DataTypes ) {
   }, {
     timestamps: false
   } );
+
+  Student.associate = function(models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    Student.belongsTo(models.Bus, {
+      // foreignKey: {
+      //   allowNull: false
+      // }
+    });
+  };
+
   return Student;
 };

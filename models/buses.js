@@ -26,5 +26,20 @@ module.exports = function( sequelize, DataTypes ) {
   }, {
     timestamps: false
   } );
+
+  Bus.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    Bus.hasMany(models.Student, {
+    });
+  };
+
+  Bus.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    Bus.hasMany(models.Driver, {
+    });
+  };
+  
   return Bus;
 };
