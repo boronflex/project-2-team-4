@@ -7,17 +7,25 @@ CREATE TABLE bus
 (
     id INT(4) NOT NULL AUTO_INCREMENT,
     bus_number INT(4) NOT NULL,
-    bus_driver VARCHAR(40) NOT NULL,
     riders VARCHAR(40) NOT NULL,
 	capacity INT(4) NOT NULL,
     home_base VARCHAR(40) NOT NULL,
+    PRIMARY KEY (id)
+    );
+
+CREATE TABLE driver
+(
+    id INT(4) NOT NULL AUTO_INCREMENT,
+    driver_first_name VARCHAR(40) NOT NULL,
+    driver_last_name VARCHAR(40) NOT NULL,
+    driver_photo LONGBLOB,
+    driver_comments TEXT,
     PRIMARY KEY (id)
     );
     
 CREATE TABLE student
 (
 	id INT(4) NOT NULL AUTO_INCREMENT,
-    bus_number INT(4) NOT NULL,
     student_last_name VARCHAR(40) NOT NULL,
     student_first_name VARCHAR(40) NOT NULL,
     gender VARCHAR(40) NOT NULL,
