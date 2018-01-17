@@ -13,12 +13,19 @@ CREATE TABLE bus
     PRIMARY KEY (id)
     );
 
+-- route is on the backburner for now but i want it in here as a reminder
+-- CREATE TABLE busRoute 
+-- (
+--     id INT(4) NOT NULL AUTO_INCREMENT,
+--     PRIMARY KEY (id)
+--     );
+
 CREATE TABLE driver
 (
     id INT(4) NOT NULL AUTO_INCREMENT,
     driver_first_name VARCHAR(40) NOT NULL,
     driver_last_name VARCHAR(40) NOT NULL,
-    driver_photo LONGBLOB,
+    driver_img LONGBLOB,
     driver_comments TEXT,
     PRIMARY KEY (id)
     );
@@ -32,11 +39,13 @@ CREATE TABLE student
     grade_level INT(4) NOT NULL,
     guardian_name VARCHAR(40) NOT NULL,
     guardian_email VARCHAR(40) NOT NULL,
-    address_num INT(4) NOT NULL,
-    address_stname VARCHAR(40) NOT NULL,
-    city VARCHAR(40) NOT NULL,
-    st VARCHAR(40) NOT NULL,
-	zipcode INT(4) NOT NULL,
+    address_lat DOUBLE,
+    address_long DOUBLE,
+    -- address_num INT(4) NOT NULL,
+    -- address_stname VARCHAR(40) NOT NULL,
+    -- city VARCHAR(40) NOT NULL,
+    -- st VARCHAR(40) NOT NULL,
+	-- zipcode INT(4) NOT NULL,
     bus_rider BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (id)
     );
