@@ -31,6 +31,7 @@ module.exports = function( sequelize, DataTypes ) {
   Driver.associate = function(models) {
 
     Driver.belongsTo(models.Bus, {
+      // this might be necessary - try without first
       // foreignKey: {
       //   allowNull: false
       // }

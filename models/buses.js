@@ -33,6 +33,7 @@ module.exports = function( sequelize, DataTypes ) {
 
   Bus.associate = function(models) {
     Bus.hasMany(models.Driver, {
+      //might need to specify a foreign key here
     });
   };
   

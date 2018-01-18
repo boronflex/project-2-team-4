@@ -47,6 +47,7 @@ module.exports = function(sequelize, DataTypes) {
   Student.associate = function(models) {
 
     Student.belongsTo(models.Bus, {
+      //this might be necessary - try without first
       // foreignKey: {
       //   allowNull: false
       // }
