@@ -1,18 +1,8 @@
 const express = require( "express" );
 const router = express.Router();
-const bus = require( "../models/busModel.js" );
-// const rider = require( "../models/rider.js" );
+const bus = require( "../models/buses.js" );
+const drivers = require( "../models/drivers.js" );
+const students = require( "../models/students.js" );
 
-
-// router.get("/", function(req, res) {
-//   console.log("route is getting hit");
-//   bus.all(function(data) {
-//     var hbsObject = {
-//       bus: data
-//     };
-//     res.render("index", hbsObject);
-//
-//   });
-// });
 
 module.exports = router;
