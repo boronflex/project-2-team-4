@@ -26,10 +26,10 @@ body {
 }
 
 #map {
-  height: 100%;
+  height: 600px;
   float: left;
-  width: 70%;
-  height: 100%;
+  width: 800px;
+  border: 1px solid black;
 }
 
 #right-panel {
@@ -48,4 +48,12 @@ body {
   padding: 10px;
   overflow: scroll;
   height: 174px;
+}
+
+li {
+  border: 1px solid red;
+}
+
+#address-div {
+  border: 1px solid yellow;
 }

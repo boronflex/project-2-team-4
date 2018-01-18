@@ -20,7 +20,7 @@ module.exports = function(app) {
       for (let addresses of Object.values(dbStu)) {
         addresses = addresses.address;
         addressesArr.push(addresses);
-        // console.log(dbStu);
+        console.log(dbStu);
 
       } //end of loop
 
@@ -34,7 +34,7 @@ module.exports = function(app) {
       // console.log("hbs Object", hbsObject);
       // We have access to the students as an argument inside of the callback function
       // res.json(addressesArr);
-      res.render("index.handlebars", hbsObject);
+      res.render("index", hbsObject);
 
 
     });
