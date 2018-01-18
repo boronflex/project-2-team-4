@@ -2,13 +2,13 @@
     <div class="row">
       <div class="col-md-4">
 
-        <h3>Bus Table</h3>
+        <h3>Student Addresses</h3>
         <ul>
-          {{#each bus}}
+          {{#each student}}
               <li>
-                {{bus_number}}
-                {{bus_driver}}
-
+                {{student_first_name}}
+                {{student_last_name}}
+                {{address}}
               </li>
           {{/each}}
         </ul>
@@ -59,6 +59,12 @@
 </div>
 
 <script>
+
+  $.get( "api/students", function( data ) {
+  // data is your array of addresses
+  // So I would put your maps api code here
+  console.log("get call made");
+
   function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -114,6 +120,11 @@
       }
     });
   }
+
+
+
+});
+
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEkI7qU2GiLBFGdTKSINkkZnHToR6DXxU&callback=initMap">
 </script>

@@ -21,12 +21,12 @@ app.use(bodyParser.json({
 }));
 
 //testing
-// app.set('views', __dirname + '/views');
-// app.engine('hbs', exphbs({
-//   extname: 'hbs',
-//   defaultLayout: 'main.hbs'
-// }));
-// app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
+app.engine('exphbs', exphbs({
+  extname: 'exphbs',
+  defaultLayout: 'main.hbs'
+}));
+app.set('view engine', 'exphbs');
 // //tesing end
 
 // Static directory

@@ -2,7 +2,7 @@ var db = require("../models");
 var path = require('path');
 
 var addresses;
-var citiesArr = [];
+var addressesArr = [];
 
 // Routes
 // =============================================================
@@ -18,20 +18,23 @@ module.exports = function(app) {
 
 
       for (let addresses of Object.values(dbStu)) {
-        cities = addresses.City;
-        citiesArr.push(cities);
+        addresses = addresses.address;
+        addressesArr.push(addresses);
+        // console.log(dbStu);
 
       } //end of loop
 
-      console.log("all cities:", citiesArr);
+      console.log("all addresses:", addressesArr);
+      console.log("first address:", addressesArr[0]);
 
-      console.log("first city:", citiesArr[0]);
+      var hbsObject = {
+        students: dbStu
+      };
 
-      // var hbsObject = {
-      //   students: res
-      // };
+      // console.log("hbs Object", hbsObject);
       // We have access to the students as an argument inside of the callback function
-      res.json(dbStu);
+      // res.json(addressesArr);
+      res.render("index.handlebars", hbsObject);
 
 
     });
