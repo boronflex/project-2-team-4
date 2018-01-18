@@ -3,13 +3,12 @@ var Sequelize = require( "sequelize" );
 module.exports = function( sequelize, DataTypes ) {
 
   var Bus = sequelize.define( 'Bus', {
-    // for my team members- we don't need a bus number- sequelize adds an indexed (not repeated) id and we should use that number
-    // this is essentially storing 2 fields that serve the same purpose
-    // bus_number: {
-    //   allowNull: false,
-    //   type: DataTypes.INTEGER( 11 ),
 
-    // },
+    bus_number: {
+      allowNull: false,
+      type: DataTypes.INTEGER( 11 ),
+
+    },
 
     capacity: {
       allowNull: false,
@@ -34,6 +33,7 @@ module.exports = function( sequelize, DataTypes ) {
 
   Bus.associate = function(models) {
     Bus.hasMany(models.Driver, {
+      //might need to specify a foreign key here
     });
   };
   
