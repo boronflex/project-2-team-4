@@ -36,12 +36,14 @@ module.exports = function(sequelize, DataTypes) {
 
     Driver.associate = function(models) {
 
+
         Driver.belongsTo(models.Bus, {
             // foreignKey: {
             //   allowNull: false
             // }
         });
     };
+
 
     return Driver;
 };
