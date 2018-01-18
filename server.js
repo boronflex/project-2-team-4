@@ -21,12 +21,11 @@ app.use(bodyParser.json({
 }));
 
 //testing
-// app.set('views', __dirname + '/views');
-// app.engine('hbs', exphbs({
-//   extname: 'hbs',
-//   defaultLayout: 'main.hbs'
-// }));
-// app.set('view engine', 'hbs');
+// Set Handlebars as the default templating engine.
+app.engine("handlebars", exphbs({
+  defaultLayout: "main"
+}));
+app.set("view engine", "handlebars");
 // //tesing end
 
 // Static directory

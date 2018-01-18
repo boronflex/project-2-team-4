@@ -1,64 +1,64 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-
-        <h3>Bus Table</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <div id="address-div">
+        <h3>Student Addresses</h3>
         <ul>
-          {{#each bus}}
-              <li>
-                {{bus_number}}
-                {{bus_driver}}
-
-              </li>
+          {{#each Student}}
+            <li>
+              {{address}}
+            </li>
           {{/each}}
         </ul>
       </div>
-
-
     </div>
-    <!--close row-->
+  </div>
+  <!--close row-->
 
-
-
-
-<!--HTML & Code for Map -->
-<div id="map"></div>
-<div id="right-panel">
-  <div>
-    <b>Start:</b>
-    <select id="start">
+  <!--HTML & Code for Map -->
+  <div class="row">
+    <div id="map"></div>
+    <div id="right-panel">
+      <div>
+        <b>Start:</b>
+        <select id="start">
     <option value="3200 W Davis St, Conroe, TX 77304">CHS</option>
     </select>
-    <br>
-    <b>Waypoints:</b> <br>
-    <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
-    <select multiple id="waypoints">
+        <br>
+        <b>Waypoints:</b> <br>
+        <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+        <select multiple id="waypoints">
     <option value="200 Fountains Lane, Conroe, TX 77304">A</option>
     <option value="1971 O'Grady Dr Conroe, Texas">B</option>
     <option value="24 Dover Dr Conroe, TX 77304">C</option>
     <option value="1811 Pembrook Cir Conroe, TX 77301">D</option>
-
-
-
     </form>
 
   </select>
-    <br>
-    <b>End:</b>
-    <select id="end">
+        <br>
+        <b>End:</b>
+        <select id="end">
     <option value="3200 W Davis St, Conroe, TX 77304">CHS</option>
     <!-- <option value="Seattle, WA">Seattle, WA</option>
     <option value="San Francisco, CA">San Francisco, CA</option>
     <option value="Los Angeles, CA">Los Angeles, CA</option> -->
   </select>
-    <br>
-    <input type="submit" id="submit">
+        <br>
+        <input type="submit" id="submit">
+      </div>
+      <div id="directions-panel"></div>
+    </div>
   </div>
-  <div id="directions-panel"></div>
-</div>
 </div>
 
 <script>
+  //   $.get( "api/students", function( data ) {
+  //   // data is your array of addresses
+  //   // So I would put your maps api code here
+  //   console.log("get call made");
+  //
+  // });
+
   function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;

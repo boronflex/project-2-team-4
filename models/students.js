@@ -1,43 +1,37 @@
-var Sequelize = require( "sequelize" );
+var Sequelize = require("sequelize");
 
-module.exports = function( sequelize, DataTypes ) {
+module.exports = function(sequelize, DataTypes) {
 
-  var Student = sequelize.define( 'Student', {
+  var Student = sequelize.define('Student', {
     student_last_name: {
       allowNull: false,
-      type: DataTypes.STRING( 50 )
+      type: DataTypes.STRING(50)
 
     },
     student_first_name: {
       allowNull: false,
-      type: DataTypes.STRING( 50 )
+      type: DataTypes.STRING(50)
 
     },
     gender: {
       allowNull: false,
-      type: DataTypes.STRING( 11 )
+      type: DataTypes.STRING(11)
 
     },
     guardian_name: {
       allowNull: false,
-      type: DataTypes.STRING( 50 )
+      type: DataTypes.STRING(50)
 
     },
     guardian_email: {
       allowNull: false,
-      type: DataTypes.STRING( 50 )
+      type: DataTypes.STRING(50)
 
     },
 
-    address_lat: {
+    address: {
       allowNull: false,
-      type: DataTypes.DOUBLE
-
-    },
-
-    address_long: {
-      allowNull: false,
-      type: DataTypes.DOUBLE
+      type: DataTypes.STRING(50)
 
     },
 
@@ -48,7 +42,7 @@ module.exports = function( sequelize, DataTypes ) {
     }
   }, {
     timestamps: false
-  } );
+  });
 
   Student.associate = function(models) {
 
