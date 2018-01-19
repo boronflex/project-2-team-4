@@ -76,7 +76,7 @@
     var waypts = [];
     var checkboxArray = document.getElementById('waypoints');
     for (var i = 0; i < checkboxArray.length; i++) {
-      console.log(checkboxArray);
+      console.log("checkbox array", checkboxArray);
       if (checkboxArray.options[i].selected) {
         waypts.push({
           location: checkboxArray[i].value,
@@ -105,6 +105,8 @@
           summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
           summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
           summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+          // console.log("sum panel", summaryPanel);
+
         }
       } else {
         window.alert('Directions request failed due to ' + status);
