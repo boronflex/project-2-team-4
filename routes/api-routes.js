@@ -14,13 +14,12 @@ module.exports = function(app) {
     // findAll returns all entries for a table when used with no options
     db.Student.findAll({}).then(function(dbStu) {
       console.log("student query happened");
-      // console.log(dbStu);
 
 
       for (let addresses of Object.values(dbStu)) {
         addresses = addresses.address;
         addressesArr.push(addresses);
-        console.log(dbStu);
+        console.log(addresses);
 
       } //end of loop
 
@@ -28,10 +27,10 @@ module.exports = function(app) {
       console.log("first address:", addressesArr[0]);
 
       var hbsObject = {
-        students: dbStu
+        addresses: addressesArr
       };
 
-      // console.log("hbs Object", hbsObject);
+      console.log("Students is:", dbStu[0].student_first_name);
       // We have access to the students as an argument inside of the callback function
       // res.json(addressesArr);
       res.render("index", hbsObject);
