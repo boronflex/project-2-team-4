@@ -19,7 +19,7 @@ module.exports = function(app) {
       for (let addresses of Object.values(dbStu)) {
         addresses = addresses.address;
         addressesArr.push(addresses);
-        // console.log(dbStu);
+        console.log(addresses);
 
       } //end of loop
 
