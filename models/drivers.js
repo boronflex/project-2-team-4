@@ -3,6 +3,7 @@ var Sequelize = require("sequelize");
 module.exports = function(sequelize, DataTypes) {
 
     var Driver = sequelize.define('Driver', {
+        
         driver_first_name: {
             allowNull: false,
             type: DataTypes.STRING(50),
