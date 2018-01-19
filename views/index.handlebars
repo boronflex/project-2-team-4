@@ -6,7 +6,7 @@
         <ul>
           {{#each Student}}
             <li>
-              {{address}}
+              {{id}}
             </li>
           {{/each}}
         </ul>
@@ -28,10 +28,12 @@
         <b>Waypoints:</b> <br>
         <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
         <select multiple id="waypoints">
-    <option value="200 Fountains Lane, Conroe, TX 77304">A</option>
+          {{#each addresses}}
+            <option value={{this}}>{{this}}</option>
+          {{/each}}
+    <!-- <option value="200 Fountains Lane, Conroe, TX 77304">A</option>
     <option value="1971 O'Grady Dr Conroe, Texas">B</option>
-    <option value="24 Dover Dr Conroe, TX 77304">C</option>
-    <option value="1811 Pembrook Cir Conroe, TX 77301">D</option>
+    <option value="24 Dover Dr Conroe, TX 77304">C</option> -->
     </form>
 
   </select>
