@@ -1,7 +1,6 @@
 const express = require("express");
 const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
-const routes = require("./controllers/busController.js")
 const app = express();
 const path = require("path");
 const db = require("./models");
@@ -33,8 +32,13 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app);
+
+//routes are being deprecated in favor of 
+// require("./routes/api-routes.js")(app);
+// require("./routes/html-routes.js")(app);
+
+const routes = require("./controllers/busController.js")
+app.use("/", routes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
