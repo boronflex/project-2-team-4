@@ -27,13 +27,13 @@ module.exports = function(app) {
       console.log("first address:", addressesArr[0]);
 
       var hbsObject = {
-        Students: dbStu
+        addresses: addressesArr
       };
 
       console.log("Students is:", dbStu[0].student_first_name);
       // We have access to the students as an argument inside of the callback function
       // res.json(addressesArr);
-      res.render("index", dbStu);
+      res.render("index", hbsObject);
 
 
     });
