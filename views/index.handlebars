@@ -22,8 +22,8 @@
       <div>
         <b>Start:</b>
         <select id="start">
-    <option value="3200 W Davis St, Conroe, TX 77304">CHS</option>
-    </select>
+          <option value="3200 W Davis St, Conroe, TX 77304">CHS</option>
+        </select>
         <br>
         <b>Waypoints:</b> <br>
         <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
@@ -31,9 +31,6 @@
           {{#each addresses}}
             <option value="{{this}}">{{this}}</option>
           {{/each}}
-    <!-- <option value="200 Fountains Lane, Conroe, TX 77304">A</option>
-    <option value="1971 O'Grady Dr Conroe, Texas">B</option>
-    <option value="24 Dover Dr Conroe, TX 77304">C</option> -->
     </form>
 
   </select>
@@ -41,9 +38,6 @@
         <b>End:</b>
         <select id="end">
     <option value="3200 W Davis St, Conroe, TX 77304">CHS</option>
-    <!-- <option value="Seattle, WA">Seattle, WA</option>
-    <option value="San Francisco, CA">San Francisco, CA</option>
-    <option value="Los Angeles, CA">Los Angeles, CA</option> -->
   </select>
         <br>
         <input type="submit" id="submit">
@@ -76,7 +70,7 @@
     var waypts = [];
     var checkboxArray = document.getElementById('waypoints');
     for (var i = 0; i < checkboxArray.length; i++) {
-      console.log(checkboxArray);
+      console.log("checkbox array", checkboxArray);
       if (checkboxArray.options[i].selected) {
         waypts.push({
           location: checkboxArray[i].value,
@@ -105,6 +99,8 @@
           summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
           summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
           summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+          // console.log("sum panel", summaryPanel);
+
         }
       } else {
         window.alert('Directions request failed due to ' + status);
