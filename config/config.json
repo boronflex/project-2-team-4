@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "8Ya[qsu0KdY",
+    "password": "",
     "database": "busapp_db",
     "host": "localhost",
     "dialect": "mysql"
