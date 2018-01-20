@@ -13,7 +13,7 @@ USE busapp_db;
 CREATE TABLE bus 
 (
     id INT(4) NOT NULL AUTO_INCREMENT,
-    -- bus_number INT(4) NOT NULL, -not necessary- ID field serves this purpose
+    -- bus_number INT(4) NOT NULL, 
 	capacity INT(4) NOT NULL,
     home_base VARCHAR(40) NOT NULL,
     PRIMARY KEY (id)
