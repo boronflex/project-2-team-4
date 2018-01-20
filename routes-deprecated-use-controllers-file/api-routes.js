@@ -19,12 +19,12 @@ module.exports = function(app) {
       for (let addresses of Object.values(dbStu)) {
         addresses = addresses.address;
         addressesArr.push(addresses);
-        console.log(addresses);
+        // console.log(addresses);
 
       } //end of loop
 
-      console.log("all addresses:", addressesArr);
-      console.log("first address:", addressesArr[0]);
+      // console.log("all addresses:", addressesArr);
+      // console.log("first address:", addressesArr[0]);
 
       var hbsObject = {
         addresses: addressesArr
