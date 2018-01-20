@@ -1,3 +1,5 @@
+var mySteps;
+
 function initMap() {
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -36,6 +38,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     travelMode: 'DRIVING'
   }, function(response, status) {
     if (status === 'OK') {
+
+      //pulling turn by turn instructions out of response
       var legsArr = response.routes[0].legs;
 
       for (var i = 0; i < legsArr.length; i++) {
@@ -45,16 +49,20 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         for (var j = 0; j < stepsArr.length; j++) {
 
           var steps = stepsArr[j].instructions;
-          console.log(steps);
 
-          // var stepsObj = {
-          //   steps: steps
-          // };
-          //
+          //trying to push steps into an array of strings so I can export as handlebars object; it say cannot read property of underfined, ie mySteps isn't defined?
+          // mySteps.push(steps);
+          console.log("mySteps:", steps);
+
+          var stepsObj = {
+            steps: mySteps
+          };
+
+          //res is undefined!
           // res.render("index", steps);
 
         } //end j loop
-      } // end for loop 1
+      } // end outter for loop
 
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
