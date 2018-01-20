@@ -1,10 +1,12 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": null,
     "database": "busapp_db",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
+
   },
 
   "test": {
@@ -12,7 +14,9 @@
     "password": null,
     "database": "busapp_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
+
 
   },
 
@@ -21,7 +25,9 @@
     "password": null,
     "database": "busapp_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
+
 
   }
 }
