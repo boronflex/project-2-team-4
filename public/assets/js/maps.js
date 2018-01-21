@@ -1,3 +1,7 @@
+var mySteps = [];
+var stepsArr = [];
+var steps;
+
 function initMap() {
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -36,29 +40,36 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     travelMode: 'DRIVING'
   }, function(response, status) {
     if (status === 'OK') {
-      var legsArr = response.routes[0].legs;
 
-      for (var i = 0; i < legsArr.length; i++) {
-        // console.log("legsArr:", legsArr);
-        var stepsArr = legsArr[i].steps;
+      console.log("response:", response.routes);
+      //
+      // var legsArr = response.routes[0].legs;
+      //
+      // for (var i = 0; i < legsArr.length; i++) {
+      //   // console.log("legsArr:", legsArr);
+      //   stepsArr = legsArr[i].steps;
+      //
+      //   for (var j = 0; j < stepsArr.length; j++) {
+      //
+      //     steps = stepsArr[j].instructions;
+      //
+      //     mySteps.push(steps);
+      //
+      //     for (var h = 0; h < mySteps.length; h++) {
+      //
+      //       var newLi = $("<li>");
+      //       newLi.text(steps);
+      //       $("#steps-list").append(newLi);
+      //
+      //     } // end h loop
+      //   } //end j loop
+      // } // end outter for loop
 
-        for (var j = 0; j < stepsArr.length; j++) {
 
-          var steps = stepsArr[j].instructions;
-          console.log(steps);
-
-          // var stepsObj = {
-          //   steps: steps
-          // };
-          //
-          // res.render("index", steps);
-
-        } //end j loop
-      } // end for loop 1
 
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
-      var summaryPanel = document.getElementById('directions-panel');
+      var summaryPanel = document.getElementById('turn-by-turn');
       summaryPanel.innerHTML = '';
       // For each route, display summary information.
       for (var i = 0; i < route.legs.length; i++) {
@@ -68,9 +79,17 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-        // console.log("sum panel", summaryPanel);
 
-      }
+        stepsArr = route.legs[i].steps
+
+        for (var j = 0; j < stepsArr.length; j++) {
+          steps = stepsArr[j].instructions;
+
+          console.log("steps:", steps);
+          $("#steps-list").append(steps);
+        }
+
+      } //end i loop
     } else {
       window.alert('Directions request failed due to ' + status);
     }
