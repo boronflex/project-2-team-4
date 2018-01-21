@@ -42,32 +42,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   }, function(response, status) {
     if (status === 'OK') {
 
-      console.log("response:", response.routes);
-      //
-      // var legsArr = response.routes[0].legs;
-      //
-      // for (var i = 0; i < legsArr.length; i++) {
-      //   // console.log("legsArr:", legsArr);
-      //   stepsArr = legsArr[i].steps;
-      //
-      //   for (var j = 0; j < stepsArr.length; j++) {
-      //
-      //     steps = stepsArr[j].instructions;
-      //
-      //     mySteps.push(steps);
-      //
-      //     for (var h = 0; h < mySteps.length; h++) {
-      //
-      //       var newLi = $("<li>");
-      //       newLi.text(steps);
-      //       $("#steps-list").append(newLi);
-      //
-      //     } // end h loop
-      //   } //end j loop
-      // } // end outter for loop
-
-
-
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
       var summaryPanel = document.getElementById('turn-by-turn');

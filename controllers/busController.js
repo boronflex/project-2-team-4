@@ -21,7 +21,11 @@ router.get("/", function(req, res) {
 // GET route for getting all of the students
 router.get("/api/students", function(req, res) {
   // findAll returns all entries for a table when used with no options
-  db.Student.findAll({}).then(function(dbStu) {
+  db.Student.findAll({
+    where: {
+      busrider: true
+    }
+  }).then(function(dbStu) {
     console.log("student query happened");
 
     var addresses;
