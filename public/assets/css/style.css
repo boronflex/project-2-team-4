@@ -51,9 +51,9 @@ body {
 }
 
 li {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 #turn-by-turn {
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 }
