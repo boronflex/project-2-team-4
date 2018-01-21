@@ -51,7 +51,24 @@ body {
 }
 
 li {
-  /* border: 1px solid red; */
+list-style: none;
+}
+
+li:before
+{
+    content: "\2610";
+    margin-right:5px;
+}
+
+li:hover
+{
+    background-color: lightyellow;
+}
+
+li:hover:before
+{
+    content: "\2611";
+    margin-right:5px;
 }
 
 #turn-by-turn {
