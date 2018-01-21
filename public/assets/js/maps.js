@@ -38,6 +38,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     waypoints: waypts,
     optimizeWaypoints: true,
     travelMode: 'DRIVING'
+
   }, function(response, status) {
     if (status === 'OK') {
 
@@ -80,10 +81,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
 
-        stepsArr = route.legs[i].steps
+        stepsArr = route.legs[i].steps;
 
         for (var j = 0; j < stepsArr.length; j++) {
-          steps = stepsArr[j].instructions;
+          steps = '<li>' + stepsArr[j].instructions + '</li>' + '<br>';
 
           console.log("steps:", steps);
           $("#steps-list").append(steps);
