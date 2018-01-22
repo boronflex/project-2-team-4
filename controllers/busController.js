@@ -1,4 +1,4 @@
-const express = require( "express" );
+const express = require("express");
 const router = express.Router();
 
 //import models
@@ -21,7 +21,11 @@ router.get("/", function(req, res) {
 // GET route for getting all of the students
 router.get("/api/students", function(req, res) {
   // findAll returns all entries for a table when used with no options
-  db.Student.findAll({}).then(function(dbStu) {
+  db.Student.findAll({
+    where: {
+      busrider: true
+    }
+  }).then(function(dbStu) {
     console.log("student query happened");
 
     var addresses;
@@ -30,18 +34,18 @@ router.get("/api/students", function(req, res) {
     for (let addresses of Object.values(dbStu)) {
       addresses = addresses.address;
       addressesArr.push(addresses);
-      console.log(addresses);
+      // console.log(addresses);
 
     } //end of loop
 
-    console.log("all addresses:", addressesArr);
-    console.log("first address:", addressesArr[0]);
+    // console.log("all addresses:", addressesArr);
+    // console.log("first address:", addressesArr[0]);
 
     var hbsObject = {
       addresses: addressesArr
     };
 
-    console.log("Students is:", dbStu[0].student_first_name);
+    // console.log("Students is:", dbStu[0].student_first_name);
     // We have access to the students as an argument inside of the callback function
     // res.json(addressesArr);
     res.render("index", hbsObject);

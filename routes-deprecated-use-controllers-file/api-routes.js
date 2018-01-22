@@ -23,15 +23,13 @@ module.exports = function(app) {
 
       } //end of loop
 
-      // console.log("all addresses:", addressesArr);
-      // console.log("first address:", addressesArr[0]);
+
 
       var hbsObject = {
         addresses: addressesArr
       };
 
-      console.log("Students is:", dbStu[0].student_first_name);
-      // We have access to the students as an argument inside of the callback function
+
       // res.json(addressesArr);
       res.render("index", hbsObject);
 
