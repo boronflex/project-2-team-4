@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Drag and Drop Driver Photo</title>
+</head>
+<body>
+
+<script src="https://static.filestackapi.com/v3/filestack.js"></script>
+<script type="text/javascript">
+
+
+
+  var fsClient = filestack.init('ArKUq7TzLSaKrbTJi6WB9z');
+  function openPicker() {
+    fsClient.pick({
+      fromSources:["local_file_system","url","googledrive","dropbox"],
+      maxFiles:5
+    }).then(function(response) {
+      // declare this function to handle response
+      handleFilestack(response);
+    });
+    openPicker();
+  }
+</script>
+</body>
+</html>
+<!--html page 
+filestacker get a URL
+update driver.js model
+post in the contoller-->
