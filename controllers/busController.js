@@ -270,4 +270,13 @@ router.put("/api/drivers", function(req, res) {
     });
 });
 
+router.post("/api/image", function(req, res) {
+  console.log(req.body.driverImage);
+  res.json({message: "Image Send Successful"});
+})
+
+// router.get("/driverImage", function(req, res) {
+//   res.sendFile("../views/drag&drop.html");
+// })
+
 module.exports = router;
