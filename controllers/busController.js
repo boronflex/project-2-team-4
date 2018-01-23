@@ -82,8 +82,7 @@ router.post("/api/students", function(req, res) {
       gender: req.body.gender,
       guardian_name: req.body.guardian_name,
       guardian_email: req.body.guardian_email,
-      address_lat: req.body.address_lat,
-      address_long: req.body.address_long,
+      address: req.body.address,
       busrider: req.body.Busrider
 
     }).then(function(dbStu) {
@@ -120,8 +119,7 @@ router.put("/api/students", function(req, res) {
       gender: req.body.gender,
       guardian_name: req.body.guardian_name,
       guardian_email: req.body.guardian_email,
-      address_lat: req.body.address_lat,
-      address_long: req.body.address_long,
+      address: req.body.address,
       busrider: req.body.Busrider
     }, {
       where: {
@@ -159,8 +157,6 @@ router.post("/api/buses", function(req, res) {
   // and complete property (req.body)
   db.Bus.create({
       bus_number: req.body.bus_number,
-      bus_driver: req.body.bus_driver,
-      riders: req.body.riders,
       capacity: req.body.capacity,
       home_base: req.body.home_base
 
@@ -194,8 +190,6 @@ router.put("/api/buses", function(req, res) {
   // we use where to describe which objects we want to update
   db.Bus.update({
       bus_number: req.body.bus_number,
-      bus_driver: req.body.bus_driver,
-      riders: req.body.riders,
       capacity: req.body.capacity,
       home_base: req.body.home_base
     }, {
