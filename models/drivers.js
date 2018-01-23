@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     driver_img: {
       type: DataTypes.STRING(100),
       allowNull: true
-      //UPDATE DRIVER TABLE AND WHERE LIMIT 1
+      //UPDATE DRIVER TABLE with URL of driver image AND WHERE "driver_img" LIMIT 1
     },
 
     driver_comments: {

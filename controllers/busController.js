@@ -271,7 +271,8 @@ router.put("/api/drivers", function(req, res) {
 });
 
 router.post("/api/image", function(req, res) {
-  console.log(req.body.driverImage);
+  
+  console.log(req.body.driver_img);
   res.json({message: "Image Send Successful"});
 })
 

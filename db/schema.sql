@@ -25,7 +25,7 @@ CREATE TABLE driver
     id INT(4) NOT NULL AUTO_INCREMENT,
     driver_first_name VARCHAR(40) NOT NULL,
     driver_last_name VARCHAR(40) NOT NULL,
-    driver_img LONGBLOB,
+    driver_img VARCHAR(100),
     driver_comments TEXT,
     PRIMARY KEY (id)
     );

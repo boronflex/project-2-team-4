@@ -9,4 +9,4 @@ INSERT INTO students (student_last_name, student_first_name, gender, guardian_na
 
 
 /* seed data for bus driver */
-INSERT INTO drivers (driver_first_name, driver_last_name, driver_comments) VALUES ('Bussy', 'Gonzalez', 'Drives very spiffily');
+INSERT INTO drivers (driver_first_name, driver_last_name, driver_img, driver_comments) VALUES ('Bussy', 'Gonzalez', 'Drives very spiffily');
