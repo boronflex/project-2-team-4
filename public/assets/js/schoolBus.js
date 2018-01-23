@@ -40,9 +40,60 @@ $(function() {
 
   //bus events########################################
 
+  $(".add-bus-form").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newBus = {
+      bus_number: $("#input-bus-number").val().trim(),
+      capacity: $("#capacity").val().trim(),
+      home_base: $("#input-home-base").val().trim()
+    };
+
+    
+    // Send the POST request.
+    $.ajax("/api/buses", {
+      type: "POST",
+      data: newBus
+    }).then(
+      function() {
+        console.log("added new bus");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+
   //end bus events######################################################
 
   //driver events########################################
+
+  $(".add-driver-form").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newDriver = {
+      driver_first_name: $("#input-first-name").val().trim(),
+      driver_last_name: $("#input-last-name").val().trim(),
+      driver_img: $("#input-image").val().trim(),
+      driver_comments: $("#input-comments").val().trim(),
+    };
+
+    
+    // Send the POST request.
+    $.ajax("/api/drivers", {
+      type: "POST",
+      data: newDriver
+    }).then(
+      function() {
+        console.log("added new driver");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
 
   //end student events######################################################
 
