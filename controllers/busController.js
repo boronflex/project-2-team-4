@@ -10,9 +10,26 @@ var db = require("../models");
 
 //html routes=================================================
 
+//home page
 router.get("/", function(req, res) {
   res.render("index");
 });
+
+//input form for driver, student, and bus
+router.get("/inputs", function(req, res) {
+  res.render("inputs");
+});
+
+//bus driver info page with map, directions, manifest
+router.get("/driver-info-page", function(req, res) {
+  res.render("driver-info-page");
+});
+
+//parent info name with driver info
+router.get("/parent-info-page", function(req, res) {
+  res.render("parent-info-page");
+});
+
 
 //api routes==================================================
 
