@@ -270,6 +270,8 @@ router.put("/api/drivers", function(req, res) {
     });
 });
 
+//==========Driver Image=============================
+
 router.post("/api/image", function(req, res) {
   
   console.log(req.body.driver_img);

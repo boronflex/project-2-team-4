@@ -16,6 +16,8 @@ function initMap() {
 
   document.getElementById('submit').addEventListener('click', function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
+    document.getElementById("steps-list").innerHTML = "";
+
   });
 }
 
