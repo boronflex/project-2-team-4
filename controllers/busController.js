@@ -10,9 +10,26 @@ var db = require("../models");
 
 //html routes=================================================
 
+//home page
 router.get("/", function(req, res) {
   res.render("index");
 });
+
+//input form for driver, student, and bus
+router.get("/inputs", function(req, res) {
+  res.render("inputs");
+});
+
+//bus driver info page with map, directions, manifest
+router.get("/driver-info-page", function(req, res) {
+  res.render("driver-info-page");
+});
+
+//parent info name with driver info
+router.get("/parent-info-page", function(req, res) {
+  res.render("parent-info-page");
+});
+
 
 //api routes==================================================
 
@@ -48,7 +65,7 @@ router.get("/api/students", function(req, res) {
     // console.log("Students is:", dbStu[0].student_first_name);
     // We have access to the students as an argument inside of the callback function
     // res.json(addressesArr);
-    res.render("index", hbsObject);
+    res.render("driver-info-page", hbsObject);
 
 
   });
