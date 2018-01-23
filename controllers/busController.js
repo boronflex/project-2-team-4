@@ -65,7 +65,7 @@ router.get("/api/students", function(req, res) {
     // console.log("Students is:", dbStu[0].student_first_name);
     // We have access to the students as an argument inside of the callback function
     // res.json(addressesArr);
-    res.render("index", hbsObject);
+    res.render("driver-info-page", hbsObject);
 
 
   });
