@@ -77,13 +77,13 @@ router.post("/api/students", function(req, res) {
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
   db.Student.create({
-      student_last_name: req.body.student_last_name,
       student_first_name: req.body.student_first_name,
+      student_last_name: req.body.student_last_name,
       gender: req.body.gender,
       guardian_name: req.body.guardian_name,
       guardian_email: req.body.guardian_email,
       address: req.body.address,
-      busrider: req.body.Busrider
+      busrider: req.body.busrider
 
     }).then(function(dbStu) {
       res.json(dbStu);

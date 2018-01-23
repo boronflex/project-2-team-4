@@ -2,135 +2,48 @@
 $(function() {
 
   //student events########################################
-  $(".change-devoured").on("click", function(event) {
-    var id = $(this).data("id");
 
-    var newEaten = {
-      devoured: true
-    };
-
-    // Send the PUT request.
-    $.ajax("/api/burgers/" + id, {
-      type: "PUT",
-      data: newEaten
-    }).then(
-      function() {
-        console.log("changed devoured to true");//, newEaten);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-  $(".create-form").on("submit", function(event) {
+  $(".add-student-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newBurger = {
-      name: $("#burgeradd").val().trim()
+    var studentAddress = `${$("#input-address").val().trim()} 
+                          ${$("#input-address-2").val().trim()} 
+                          ${$("#input-city").val().trim()} 
+                          ${$("#input-state").val().trim()} 
+                          ${$("#input-zip").val().trim()}`;
+
+    var newStudent = {
+      student_first_name: $("#input-first-name").val().trim(),
+      student_last_name: $("#input-last-name").val().trim(),
+      guardian_name: $("#input-guardian-name").val().trim(),
+      guardian_email: $("#input-email").val().trim(),
+      address: studentAddress,
+      busrider: true //will need to change this in the future- not set up on form yet
     };
 
     
     // Send the POST request.
-    $.ajax("/api/burgers", {
+    $.ajax("/api/students", {
       type: "POST",
-      data: newBurger
+      data: newStudent
     }).then(
       function() {
-        console.log("created new burger");
+        console.log("added new student");
         // Reload the page to get the updated list
         location.reload();
       }
     );
   });
+
   //end student events######################################################
 
   //bus events########################################
-  $(".change-devoured").on("click", function(event) {
-    var id = $(this).data("id");
 
-    var newEaten = {
-      devoured: true
-    };
-
-    // Send the PUT request.
-    $.ajax("/api/burgers/" + id, {
-      type: "PUT",
-      data: newEaten
-    }).then(
-      function() {
-        console.log("changed devoured to true");//, newEaten);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-  $(".create-form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var newBurger = {
-      name: $("#burgeradd").val().trim()
-    };
-
-    
-    // Send the POST request.
-    $.ajax("/api/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(
-      function() {
-        console.log("created new burger");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
   //end bus events######################################################
 
   //driver events########################################
-  $(".change-devoured").on("click", function(event) {
-    var id = $(this).data("id");
 
-    var newEaten = {
-      devoured: true
-    };
-
-    // Send the PUT request.
-    $.ajax("/api/burgers/" + id, {
-      type: "PUT",
-      data: newEaten
-    }).then(
-      function() {
-        console.log("changed devoured to true");//, newEaten);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-  $(".create-form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var newBurger = {
-      name: $("#burgeradd").val().trim()
-    };
-
-    
-    // Send the POST request.
-    $.ajax("/api/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(
-      function() {
-        console.log("created new burger");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
   //end student events######################################################
 
 });

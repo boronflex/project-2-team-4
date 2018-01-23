@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 
         },
         gender: {
-            allowNull: false,
+            allowNull: true,
             type: DataTypes.STRING(11),
             validate: {
                 len: [1, 11]
