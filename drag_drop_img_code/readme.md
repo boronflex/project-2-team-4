@@ -1,0 +1,1 @@
+This folder is where we are going to table our drag and drop image code while we figure out how to incorporate it.
