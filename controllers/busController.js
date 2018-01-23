@@ -1,4 +1,4 @@
-const express = require( "express" );
+const express = require("express");
 const router = express.Router();
 
 //import models
@@ -10,9 +10,26 @@ var db = require("../models");
 
 //html routes=================================================
 
+//home page
 router.get("/", function(req, res) {
   res.render("index");
 });
+
+//input form for driver, student, and bus
+router.get("/inputs", function(req, res) {
+  res.render("inputs");
+});
+
+//bus driver info page with map, directions, manifest
+router.get("/driver-info-page", function(req, res) {
+  res.render("driver-info-page");
+});
+
+//parent info name with driver info
+router.get("/parent-info-page", function(req, res) {
+  res.render("parent-info-page");
+});
+
 
 //api routes==================================================
 
@@ -21,7 +38,11 @@ router.get("/", function(req, res) {
 // GET route for getting all of the students
 router.get("/api/students", function(req, res) {
   // findAll returns all entries for a table when used with no options
-  db.Student.findAll({}).then(function(dbStu) {
+  db.Student.findAll({
+    where: {
+      busrider: true
+    }
+  }).then(function(dbStu) {
     console.log("student query happened");
 
     var addresses;
@@ -30,21 +51,21 @@ router.get("/api/students", function(req, res) {
     for (let addresses of Object.values(dbStu)) {
       addresses = addresses.address;
       addressesArr.push(addresses);
-      console.log(addresses);
+      // console.log(addresses);
 
     } //end of loop
 
-    console.log("all addresses:", addressesArr);
-    console.log("first address:", addressesArr[0]);
+    // console.log("all addresses:", addressesArr);
+    // console.log("first address:", addressesArr[0]);
 
     var hbsObject = {
       addresses: addressesArr
     };
 
-    console.log("Students is:", dbStu[0].student_first_name);
+    // console.log("Students is:", dbStu[0].student_first_name);
     // We have access to the students as an argument inside of the callback function
     // res.json(addressesArr);
-    res.render("index", hbsObject);
+    res.render("driver-info-page", hbsObject);
 
 
   });
@@ -56,14 +77,13 @@ router.post("/api/students", function(req, res) {
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
   db.Student.create({
-      student_last_name: req.body.student_last_name,
       student_first_name: req.body.student_first_name,
+      student_last_name: req.body.student_last_name,
       gender: req.body.gender,
       guardian_name: req.body.guardian_name,
       guardian_email: req.body.guardian_email,
-      address_lat: req.body.address_lat,
-      address_long: req.body.address_long,
-      busrider: req.body.Busrider
+      address: req.body.address,
+      busrider: req.body.busrider
 
     }).then(function(dbStu) {
       res.json(dbStu);
@@ -99,8 +119,7 @@ router.put("/api/students", function(req, res) {
       gender: req.body.gender,
       guardian_name: req.body.guardian_name,
       guardian_email: req.body.guardian_email,
-      address_lat: req.body.address_lat,
-      address_long: req.body.address_long,
+      address: req.body.address,
       busrider: req.body.Busrider
     }, {
       where: {
@@ -138,8 +157,6 @@ router.post("/api/buses", function(req, res) {
   // and complete property (req.body)
   db.Bus.create({
       bus_number: req.body.bus_number,
-      bus_driver: req.body.bus_driver,
-      riders: req.body.riders,
       capacity: req.body.capacity,
       home_base: req.body.home_base
 
@@ -173,8 +190,6 @@ router.put("/api/buses", function(req, res) {
   // we use where to describe which objects we want to update
   db.Bus.update({
       bus_number: req.body.bus_number,
-      bus_driver: req.body.bus_driver,
-      riders: req.body.riders,
       capacity: req.body.capacity,
       home_base: req.body.home_base
     }, {
@@ -265,5 +280,17 @@ router.put("/api/drivers", function(req, res) {
       res.json(err);
     });
 });
+
+//==========Driver Image=============================
+
+router.post("/api/image", function(req, res) {
+  
+  console.log(req.body.driver_img);
+  res.json({message: "Image Send Successful"});
+})
+
+// router.get("/driverImage", function(req, res) {
+//   res.sendFile("../views/drag&drop.html");
+// })
 
 module.exports = router;

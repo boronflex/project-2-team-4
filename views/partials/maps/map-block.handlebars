@@ -1,0 +1,43 @@
+<div class="container">
+
+  <!--HTML & Code for Map -->
+  <div class="row">
+    <h2>Map</h2>
+    <div id="map"></div>
+    <div id="right-panel">
+      <div>
+        <b>Start:</b>
+        <select id="start">
+          <option value="3200 W Davis St, Conroe, TX 77304">CHS</option>
+        </select>
+        <br>
+        <b>Waypoints:</b> <br>
+        <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+        <select multiple id="waypoints">
+          {{#each addresses}}
+            <option value="{{this}}">{{this}}</option>
+          {{/each}}
+    </form>
+
+  </select>
+        <br>
+        <b>End:</b>
+        <select id="end">
+          <option value="3200 W Davis St, Conroe, TX 77304">CHS</option>
+        </select>
+        <br>
+        <input type="submit" id="submit">
+      </div>
+      <div id="directions-panel"></div>
+    </div>
+  </div>
+
+  <div class="row">
+      <p id="turn-by-turn">
+          <ul id="steps-list">
+          </ul>
+      </p>
+  </div>
+
+
+</div>

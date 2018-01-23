@@ -22,9 +22,9 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     driver_img: {
-      type: DataTypes.BLOB,
+      type: DataTypes.STRING(100),
       allowNull: true
-
+      //UPDATE DRIVER TABLE with URL of driver image AND WHERE "driver_img" LIMIT 1
     },
 
     driver_comments: {
