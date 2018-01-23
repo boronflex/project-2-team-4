@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/boronflex/project-2-team-4#readme",
   "dependencies": {
+    "@google/maps": "^0.4.5",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
