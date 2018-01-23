@@ -13,4 +13,4 @@ INSERT INTO students (student_last_name, student_first_name, gender, guardian_na
 INSERT INTO students (student_last_name, student_first_name, gender, guardian_name, guardian_email, address, busrider) VALUES ("Juarez", "Emma", "Female", "Marta Juarez", "mj@email.com", "1024 N San Jacinto St Conroe, TX 77301", True);
 
 /* seed data for bus driver */
-INSERT INTO drivers (driver_first_name, driver_last_name, driver_comments) VALUES ('Bussy', 'Gonzalez', 'Drives very spiffily');
+INSERT INTO drivers (driver_first_name, driver_last_name, driver_img, driver_comments) VALUES ('Bussy', 'Gonzalez', 'Drives very spiffily');
