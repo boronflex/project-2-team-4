@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     driver_img: {
-      type: DataTypes.BLOB,
+      type: DataTypes.STRING,
       allowNull: true
 
     },
