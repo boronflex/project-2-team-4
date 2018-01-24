@@ -23,9 +23,9 @@ router.get("/inputs", function(req, res) {
 });
 
 //bus driver info page with map, directions, manifest
-router.get("/driver-info-page", function(req, res) {
-  res.render("driver-info-page");
-});
+// router.get("/driver-info-page", function(req, res) {
+//   res.render("driver-info-page");
+// });
 
 //parent info name with driver info
 router.get("/parent-info-page", function(req, res) {
@@ -38,7 +38,7 @@ router.get("/parent-info-page", function(req, res) {
 
 //all routes for students table
 // GET route for getting all of the students
-router.get("/api/students", function(req, res) {
+router.get("/driver-info-page", function(req, res) {
   // findAll returns all entries for a table when used with no options
   db.Student.findAll({
     where: {
