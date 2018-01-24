@@ -1,63 +1,74 @@
-body, html { overflow-x:hidden; }
-
-body {
-    background-image: url('../images/Background.svg');
-    font-family:  'Open Sans', Arial, Helvetice Neue, sans-serif;
-    font-size: 12px;
-	font-weight: 300; 
-	font-style: normal; 
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-size-adjust: 100%;
+body,
+html {
+    overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neue, sans-serif; }
+body {
+    background-image: url("../images/Background.svg");
+    font-family: 'Open Sans', Arial, Helvetice Neue, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p {
+    font-family: 'Open Sans', Arial, Helvetice Neue, sans-serif;
+}
 
 * {
-  -webkit-border-radius: 0 !important;
-     -moz-border-radius: 0 !important;
-          border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
 }
 
 .templatemo_clear {
-	clear: both;
+    clear: both;
 }
 
 .height30 {
-	height: 20px;
+    height: 20px;
 }
 
 .templatemo-top-bar {
-	background-image: url('../images/Background2.svg');
-    background-color:transparent;
-	min-height: 20px;
+    background-image: url('../images/Background2.svg');
+    background-color: transparent;
+    min-height: 20px;
 }
 
 .templatemo-top-menu {
     background-image: url('../images/Background2.svg');
-    min-height:50px;
+    min-height: 50px;
     z-index: 75;
-    width:100%;
+    width: 100%;
 }
 
 .templatemo-top-menu .navbar-toggle {
-    background-color:transparent;
+    background-color: transparent;
     margin-top: 25px;
 }
 
 .templatemo-top-menu .navbar-brand {
-    background-color:transparent;
-	padding: 0;
+    background-color: transparent;
+    padding: 0;
     margin: 10px 0 0 0;
 }
 
-
 .templatemo-welcome {
     min-height: 50px;
-	align-content: center;
+    align-content: center;
 }
 
 .templatemo-slogan {
-    font-family:  'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: normal;
     font-size: 42px;
     margin: 60px 0;
@@ -70,15 +81,14 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 }
 
 .templatemo-service-item {
-    font-family:  'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 10px;
     font-size: 20px;
 }
 
-
 .templatemo-service-item p {
-    font-weight: lighter; 
-    text-align: justify; 
+    font-weight: lighter;
+    text-align: justify;
     margin-top: 25px;
     font-size: 14px;
     color: #FFFFFF;
@@ -92,51 +102,54 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
     color: #EDED00;
 }
 
-
 .btn-orange {
     background-color: #EDED00;
-    border-bottom:2px solid #EDED00;
+    border-bottom: 2px solid #EDED00;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    color:#000000;
+    color: #000000;
 }
 
-.btn-orange:hover, .btn-orange:focus, .btn-orange:active, .btn-orange.active, .open .dropdown-toggle.btn-orange {
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active,
+.open .dropdown-toggle.btn-orange {
     background-color: #EDED00;
-    color:#000000;
+    color: #000000;
 }
 
-.nav > li > a {
+.nav>li>a {
     padding: 10px 20px;
 }
 
-.nav > li > a:hover,
-.nav > li > a:focus {
+.nav>li>a:hover,
+.nav>li>a:focus {
     background-color: #EDED00;
-    color:#ffFFFf;
+    color: #ffFFFf;
 }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    background-color:transparent;
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    background-color: transparent;
 }
 
-
-.nav > li > a {
+.nav>li>a {
     color: #FFFFFF;
 }
+
 .navbar-default {
-    background-color:transparent;
-    border:none;
+    background-color: transparent;
+    border: none;
 }
 
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    background-color:transparent;
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    background-color: transparent;
     background-color: #EDED00;
-    color:#000000;
+    color: #000000;
 }
 
 .navbar {
@@ -144,40 +157,38 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 }
 
 .templatemo-service-item-header {
-    margin-left: -10px; 
-    padding: 16px 20px 20px; 
+    margin-left: -10px;
+    padding: 16px 20px 20px;
     font-weight: bold;
     display: inline-block;
 }
 
 .templatemo-header-orange {
-    background-color:#EDED00;
+    background-color: #EDED00;
     min-width: 298px;
     height: 67px;
-    color: #fff; 
-
+    color: #fff;
 }
 
-.team_hr { 
-    width: 39.5%; 
+.team_hr {
+    width: 39.5%;
     float: left;
 }
 
 .team_hr_left {
     margin-right: 30px;
-    margin-left: 15px; 
+    margin-left: 15px;
 }
 
 .team_hr_right {
     margin-left: 30px;
 }
 
-.hr_gray {
-}
+.hr_gray {}
 
 .templatemo-line-header {
-    margin-top:100px;
-    margin-bottom:80px;
+    margin-top: 100px;
+    margin-bottom: 80px;
 }
 
 .member-thumb:hover .thumb-overlay {
@@ -205,30 +216,28 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 }
 
 .thumb-overlay a {
-    float:left;
+    float: left;
     margin-right: 5px;
 }
 
-
-
 .team-inner {
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 .team-inner-header {
     font-family: 'Open Sans', sans-serif;
-    font-weight:600;
-    font-size:16px;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .team-inner-subtext {
-    font-weight:normal;
-    font-size:12px;
+    font-weight: normal;
+    font-size: 12px;
 }
 
 .row_team {
-    margin-left:-50px;
-    margin-top:70px;
+    margin-left: -50px;
+    margin-top: 70px;
 }
 
 .row_team li {
@@ -239,7 +248,7 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
     background-size: cover;
     position: relative;
     overflow: hidden;
-    cursor:pointer;
+    cursor: pointer;
     height: 200px;
     width: 200px;
 }
@@ -251,11 +260,11 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 }
 
 .project-overlay {
-    background : rgba(0,0,0,.75);
+    background: rgba(0, 0, 0, .75);
     visibility: hidden;
     position: absolute;
-    text-align:center;
-    padding-top:40px;
+    text-align: center;
+    padding-top: 40px;
     color: #ffffff;
     height: 100%;
     width: 100%;
@@ -264,14 +273,12 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
     top: 0;
 }
 
-
 .project-overlay hr {
-    width : 70%;
-	
+    width: 70%;
 }
 
 .templatemo-project-gallery li {
-    margin:15px;
+    margin: 15px;
 }
 
 .txt_darkgrey {
@@ -283,18 +290,18 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 }
 
 .txt_slogan {
-    font-size:14px; 
-    color:#FFFFFF;
+    font-size: 14px;
+    color: #FFFFFF;
 }
 
 .templatemo-line-header span {
-    font-size: 18px; 
-    float :left; 
+    font-size: 18px;
+    float: left;
     margin-top: 10px;
 }
 
-.team_box  div {
-    text-align: center; 
+.team_box div {
+    text-align: center;
     padding-top: 100px;
 }
 
@@ -303,53 +310,53 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 }
 
 .blog_post {
-    color: #FFFFFF; 
+    color: #FFFFFF;
     padding: 10px;
 }
 
 .blog_header {
-    font-weight: bold; 
-    font-size: 16px; 
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .blog_text {
-    text-align: justify; 
-    font-size: 14px; 
+    text-align: justify;
+    font-size: 14px;
     margin-top: 20px;
 }
 
 #templatemo-contact {
-	margin-top:100px; 
-	font-size:14px;
+    margin-top: 100px;
+    font-size: 14px;
 }
+
 .templatemo-contact-map {
     margin-bottom: 15px;
     height: 378px;
-
 }
 
 .head_contact {
-    padding-bottom:80px; 
-    margin-bottom:0;
+    padding-bottom: 80px;
+    margin-bottom: 0;
 }
 
 .contact_right img {
-	margin-right:5px;
+    margin-right: 5px;
 }
 
 .contact_right form {
-	padding-left:15px;
-	padding-right:15px
+    padding-left: 15px;
+    padding-right: 15px
 }
 
 .tweet_txt {
-	min-height:160px;
+    min-height: 160px;
 }
 
 .twitter_user {
-	color: #FFFF33; 
-	font-size: 14px;
-	float: right;
+    color: #FFFF33;
+    font-size: 14px;
+    float: right;
 }
 
 .templatemo-partners .templatemo-partner-item {
@@ -357,19 +364,19 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 }
 
 .templatemo-footer {
-	margin-top: 25px;
+    margin-top: 25px;
 }
 
 .footer_container {
-	margin-top:60px; 
-	margin-bottom:40px;
+    margin-top: 60px;
+    margin-bottom: 40px;
 }
 
 .footer_bottom_content {
-	margin: auto;
-	margin-bottom: 30px;
-	font-size: 14px;
-	color:#FFFFFF;
+    margin: auto;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #FFFFFF;
 }
 
 .social-icon-fb {
@@ -427,51 +434,53 @@ a:hover .social-icon-dribbble {
     background: url('../../templatemo_395_urbanic/images/social-icon-dribbble-over.png') no-repeat;
 }
 
-ul.templatemo-project-gallery  li  a img:hover {
-}
+ul.templatemo-project-gallery li a img:hover {}
 
 .templatemo-gallery-category a {
-	color:#333333; 
+    color: #333333;
 }
 
 .templatemo-gallery-category a.active {
-	color:#EDED00; 
-	text-decoration:none;
+    color: #EDED00;
+    text-decoration: none;
 }
 
 .templatemo-gallery-category a:focus {
-	color:#EDED00;
-	text-decoration:none;	
+    color: #EDED00;
+    text-decoration: none;
 }
 
 .templatemo-gallery-category a:hover {
-	color:#EDED00; 
-	text-decoration:none;
+    color: #EDED00;
+    text-decoration: none;
 }
 
 .link_orange:hover {
-    text-decoration:none;
+    text-decoration: none;
 }
-.templatemo-project-gallery {         
-    margin:0 0 0 0;
-    margin-top:30px;
+
+.templatemo-project-gallery {
+    margin: 0 0 0 0;
+    margin-top: 30px;
     margin-left: -40px;
 }
-.templatemo-project-gallery li {     
-    list-style:none;
-    margin-bottom:25px;           
+
+.templatemo-project-gallery li {
+    list-style: none;
+    margin-bottom: 25px;
 }
+
 .templatemo-project-gallery li img {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .templatemo-tweets {
     background-color: #8996a0;
-    min-height:200px;
-    font-family:  'Open Sans', sans-serif;
-    font-size:20px;
-    color:#ffffff;
-    margin-top:100px;
+    min-height: 200px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 100px;
 }
 
 .form-control {
@@ -485,143 +494,130 @@ ul.templatemo-project-gallery  li  a img:hover {
 }
 
 .btn_loadmore {
-	margin-top:30px; 
-	margin-bottom:80px;
+    margin-top: 30px;
+    margin-bottom: 80px;
 }
 
 .blog_box {
-	margin-left: -12px;
+    margin-left: -12px;
 }
 
 @media (min-width:991px) and (max-width:1200px) {
-    .templatemo-project-box, .project-overlay {
-        height:170px;
-        width:170px;
+    .templatemo-project-box,
+    .project-overlay {
+        height: 170px;
+        width: 170px;
     }
-
     .templatemo-project-gallery {
         margin-left: -70px;
     }
-
     .templatemo-service-item-header {
         padding: 16px 10px 20px;
     }
-
     .templatemo-header-orange {
         min-width: 230px;
     }
-
-    .team_box,  .team_box_over {
-        height:220px;
-        width:220px;
+    .team_box,
+    .team_box_over {
+        height: 220px;
+        width: 220px;
     }
-	
 }
-
 
 @media (max-width:991px) {
     .team-inner {
         margin-top: 20px;
         margin-bottom: 20px;
     }
-	
     .templatemo-btn-read-more {
-        float:right;
-        margin-bottom :40px; 
+        float: right;
+        margin-bottom: 40px;
     }
 }
-
 
 @media (min-width:768px) and (max-width:990px) {
     .member-thumb .thumb-overlay {
         padding-left: 30%;
     }
-    .templatemo-project-box , .project-overlay {
-       height:130px;
-       width:130px;
-       padding-top: 0px;
+    .templatemo-project-box,
+    .project-overlay {
+        height: 130px;
+        width: 130px;
+        padding-top: 0px;
     }
-
     .templatemo-project-gallery {
-       margin-left: 10px; 
+        margin-left: 10px;
     }
-
-    .blog_box{
-       margin-right: -140px;
+    .blog_box {
+        margin-right: -140px;
     }
 }
 
-
 @media (min-width: 768px) {
-  .navbar-nav > li > a {
-    padding-top: 9px;
-    padding-bottom: 9px;
-  } 
+    .navbar-nav>li>a {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
 }
 
 @media (max-width: 768px) {
     .member-thumb .thumb-overlay {
         padding-left: 40%;
-       
     }
     .templatemo-btn-read-more {
-            float:right;
-            margin-bottom :40px; 
-      }
+        float: right;
+        margin-bottom: 40px;
+    }
 }
 
 @media (max-width: 380px) {
     .member-thumb .thumb-overlay {
-            padding-left: 30%;
-
+        padding-left: 30%;
     }
-	.templatemo-service-item-header {
-		font-size: 16px;
-		
-		padding: 23px 10px 22px;
-	}
-	.templatemo-header-orange {
-		min-width: 0px;
-	}
-	
+    .templatemo-service-item-header {
+        font-size: 16px;
+        padding: 23px 10px 22px;
+    }
+    .templatemo-header-orange {
+        min-width: 0px;
+    }
 }
 
 @media (min-width:991px) and (max-width: 1200px) {
-	 .team_hr {
-		width: 37%; 
-	}
+    .team_hr {
+        width: 37%;
+    }
 }
 
 @media (min-width:683px) and ( max-width: 991px) {
-	 .team_hr {
-		width: 33%;
-	}
+    .team_hr {
+        width: 33%;
+    }
 }
 
 @media (min-width:585px) and ( max-width: 683px) {
-        .member-thumb .thumb-overlay {
-            padding-left: 25%;
-
-        }
-	 .team_hr {
-		width: 30%;
-	}
+    .member-thumb .thumb-overlay {
+        padding-left: 25%;
+    }
+    .team_hr {
+        width: 30%;
+    }
 }
 
 @media (min-width:536px) and ( max-width: 585px) {
-	 .team_hr {
-		width: 28%;
-	}
+    .team_hr {
+        width: 28%;
+    }
 }
 
-@media  (min-width:410px) and  ( max-width: 536px) {
-	 .team_hr {
-		width: 21%;
-	}
+@media (min-width:410px) and ( max-width: 536px) {
+    .team_hr {
+        width: 21%;
+    }
 }
 
-@media  ( max-width: 410px) {
-	 .team_hr {
-		width: 11%;
-	}
+@media ( max-width: 410px) {
+    .team_hr {
+        width: 11%;
+    }
 }
