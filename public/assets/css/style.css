@@ -50,22 +50,22 @@ body {
   height: 174px;
 }
 
-li {
+.map-li {
 list-style: none;
 }
 
-li:before
+.map-li:before
 {
     content: "\2610";
     margin-right:5px;
 }
 
-li:hover
+.map-li:hover
 {
     background-color: lightyellow;
 }
 
-li:hover:before
+.map-li:hover:before
 {
     content: "\2611";
     margin-right:5px;

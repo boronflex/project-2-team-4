@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const chalkAnimation = require('chalk-animation');
+
 
 //import models
 
@@ -44,6 +46,7 @@ router.get("/api/students", function(req, res) {
     }
   }).then(function(dbStu) {
     console.log("student query happened");
+    // console.log("dbStu =", dbStu[0].student_first_name);
 
     var addresses;
     var addressesArr = [];
@@ -51,24 +54,37 @@ router.get("/api/students", function(req, res) {
     for (let addresses of Object.values(dbStu)) {
       addresses = addresses.address;
       addressesArr.push(addresses);
-      // console.log(addresses);
 
     } //end of loop
 
-    // console.log("all addresses:", addressesArr);
-    // console.log("first address:", addressesArr[0]);
+    var lastNames;
+    var firstNames;
+    var lastNamesArr = [];
+    var firstNamesArr = [];
+
+    for (var i = 0; i < dbStu.length; i++) {
+      lastNames = dbStu[i].student_last_name;
+      lastNamesArr.push(lastNames)
+      console.log(lastNamesArr);
+    }
+
+    for (var i = 0; i < dbStu.length; i++) {
+      firstNames = dbStu[i].student_first_name;
+      firstNamesArr.push(firstNames)
+      console.log(firstNamesArr);
+    }
 
     var hbsObject = {
-      addresses: addressesArr
+      addresses: addressesArr,
+      lastnames: lastNamesArr,
+      firstnames: firstNamesArr
+
     };
 
-    // console.log("Students is:", dbStu[0].student_first_name);
-    // We have access to the students as an argument inside of the callback function
-    // res.json(addressesArr);
     res.render("driver-info-page", hbsObject);
 
-
   });
+
 });
 
 // POST route for saving a new student
@@ -284,9 +300,11 @@ router.put("/api/drivers", function(req, res) {
 //==========Driver Image=============================
 
 router.post("/api/image", function(req, res) {
-  
+
   console.log(req.body.driver_img);
-  res.json({message: "Image Send Successful"});
+  res.json({
+    message: "Image Send Successful"
+  });
 })
 
 // router.get("/driver_img", function(req, res) {

@@ -6,6 +6,9 @@ const path = require("path");
 const db = require("./models");
 const exphbs = require("express-handlebars");
 const sequelize = require("sequelize");
+
+const chalkAnimation = require('chalk-animation');
+
 const PORT = process.env.PORT || 3000;
 
 
@@ -33,7 +36,7 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 
-//routes are being deprecated in favor of 
+//routes are being deprecated in favor of
 // require("./routes/api-routes.js")(app);
 // require("./routes/html-routes.js")(app);
 
@@ -46,6 +49,6 @@ db.sequelize.sync({
   // force: true
 }).then(function() {
   app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    chalkAnimation.rainbow("App listening on PORT " + PORT);
   });
 });
