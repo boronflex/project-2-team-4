@@ -9,16 +9,18 @@
      // declare this function to handle response
      //handleFilestack(response);
      console.log(response);
-     image(response.filesUploaded[0].url)
+     imagex = response.filesUploaded[0].url
+    //  image(response.filesUploaded[0].url)
    });
    
  }
+ var imagex;
  //openPicker();
 
-function image(driver_img) {
-$.post("/api/image", {driver_img}, function(response, err) {
- console.log(response);
-})
-}
+// function image(driver_img) {
+// $.post("/api/image", {driver_img}, function(response, err) {
+//  console.log(response);
+// })
+// }
 
 

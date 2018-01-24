@@ -76,7 +76,7 @@ $(function() {
     var newDriver = {
       driver_first_name: $("#input-first-name").val().trim(),
       driver_last_name: $("#input-last-name").val().trim(),
-      driver_img: $("#input-image").val().trim(),
+      driver_img: imagex,
       driver_comments: $("#input-comments").val().trim(),
     };
 
@@ -97,6 +97,7 @@ $(function() {
 //---------upload driver image button-------
 
     $(document).on("click", "#upload", function() {
+      event.preventDefault();
       console.log("here");
       openPicker();
     })

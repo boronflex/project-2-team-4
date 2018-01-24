@@ -302,6 +302,14 @@ router.put("/api/drivers", function(req, res) {
 router.post("/api/image", function(req, res) {
 
   console.log(req.body.driver_img);
+  
+  db.driver.update({
+    driver_img: req.body.driver_img
+  },  {
+    where: {
+      id: req.body.id
+    }
+  })
   res.json({
     message: "Image Send Successful"
   });
