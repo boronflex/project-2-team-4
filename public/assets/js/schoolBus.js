@@ -94,7 +94,12 @@ $(function() {
     );
   });
 
+//---------upload driver image button-------
 
+    $(document).on("click", "#upload", function() {
+      console.log("here");
+      openPicker();
+    })
   //end student events######################################################
 
 });

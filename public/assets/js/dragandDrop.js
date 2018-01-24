@@ -13,7 +13,7 @@
    });
    
  }
- openPicker();
+ //openPicker();
 
 function image(driver_img) {
 $.post("/api/image", {driver_img}, function(response, err) {
@@ -22,4 +22,3 @@ $.post("/api/image", {driver_img}, function(response, err) {
 }
 
 
-<script src="https://static.filestackapi.com/v3/filestack.js"></script>
