@@ -2,9 +2,18 @@ var mySteps = [];
 var stepsArr = [];
 var steps;
 
+// function initialize() {
+//   var mapOptions = {
+//     zoom: 12,
+//     center: new google.maps.LatLng(16.8451789, 96.1439764)
+//   };
+//
+//   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+// }
+
 function initMap() {
-  var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var directionsService = new google.maps.DirectionsService();
+  var directionsDisplay = new google.maps.DirectionsRenderer();
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 6,
     center: {
@@ -62,7 +71,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         for (var j = 0; j < stepsArr.length; j++) {
           steps = '<li class="map-li">' + stepsArr[j].instructions + '</li>' + '<br>';
 
-          console.log("steps:", steps);
+          // console.log("steps:", steps);
           $("#steps-list").append(steps);
         }
 
