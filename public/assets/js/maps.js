@@ -60,7 +60,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         stepsArr = route.legs[i].steps;
 
         for (var j = 0; j < stepsArr.length; j++) {
-          steps = '<li>' + stepsArr[j].instructions + '</li>' + '<br>';
+          steps = '<li class="map-li">' + stepsArr[j].instructions + '</li>' + '<br>';
 
           console.log("steps:", steps);
           $("#steps-list").append(steps);
