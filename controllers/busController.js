@@ -77,9 +77,11 @@ router.get("/driver-info-page", function(req, res) {
     var hbsObject = {
       addresses: addressesArr,
       lastnames: lastNamesArr,
-      firstnames: firstNamesArr
-
+      firstnames: firstNamesArr,
+      students: dbStu
     };
+
+
 
     res.render("driver-info-page", hbsObject);
 

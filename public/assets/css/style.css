@@ -80,5 +80,9 @@ list-style: none;
 }
 
 .name-li {
-  /* color: red; */
+  color: white;
+}
+
+#manifest-header {
+  color: white;
 }

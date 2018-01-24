@@ -22,12 +22,21 @@ h6,
 span,
 p {
     font-family: 'Open Sans', Arial, Helvetice Neue, sans-serif;
+    color: white;
 }
 
 * {
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
     border-radius: 0 !important;
+}
+
+label {
+    color: white;
+}
+
+b {
+    color: white;
 }
 
 .templatemo_clear {

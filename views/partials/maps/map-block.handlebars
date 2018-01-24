@@ -39,18 +39,13 @@
       </p>
   </div>
 
-  <div class="row">
+  <div class="row"></div>
   <div>
     <h2>Student Manifest</h2>
-    <ul id="manifest-list-last">
-      {{#each lastnames}}
-        <li class="name-li"="{{this}}">{{this}},</li>
-      {{/each}}
-    </ul>
 
-    <ul id="manifest-list-first">
-      {{#each firstnames}}
-        <li class="name-li"="{{this}}">{{this}},</li>
+    <ul id="manifest-list-students">
+      {{#each students}}
+        <li class="name-li">{{student_last_name}}, {{student_first_name}}</li>
       {{/each}}
     </ul>
   </div>
