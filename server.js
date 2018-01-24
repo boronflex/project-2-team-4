@@ -48,7 +48,7 @@ app.use("/", routes);
 db.sequelize.sync({
   // force: true
   logging: true
-  
+
 }).then(function() {
   app.listen(PORT, function() {
     chalkAnimation.rainbow("App listening on PORT ", 2 + PORT);
