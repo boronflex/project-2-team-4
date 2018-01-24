@@ -55,7 +55,7 @@ jQuery(function($) {
       $('.gallery').each(function() {
         if ($(this).is(":visible") == true) {
           $(this).hide();
-        };
+        }
       });
       $(linkClass).fadeIn();
     });
