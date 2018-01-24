@@ -7,10 +7,10 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var studentAddress = `${$("#input-address").val().trim()} 
-                          ${$("#input-address-2").val().trim()} 
-                          ${$("#input-city").val().trim()} 
-                          ${$("#input-state").val().trim()} 
+    var studentAddress = `${$("#input-address").val().trim()}
+                          ${$("#input-address-2").val().trim()}
+                          ${$("#input-city").val().trim()}
+                          ${$("#input-state").val().trim()}
                           ${$("#input-zip").val().trim()}`;
 
     var newStudent = {
@@ -22,7 +22,10 @@ $(function() {
       busrider: true //will need to change this in the future- not set up on form yet
     };
 
-    
+    console.log(studentAddress);
+    console.log(newStudent);
+
+
     // Send the POST request.
     $.ajax("/api/students", {
       type: "POST",
@@ -50,7 +53,7 @@ $(function() {
       home_base: $("#input-home-base").val().trim()
     };
 
-    
+
     // Send the POST request.
     $.ajax("/api/buses", {
       type: "POST",
@@ -80,7 +83,7 @@ $(function() {
       driver_comments: $("#input-comments").val().trim(),
     };
 
-    
+
     // Send the POST request.
     $.ajax("/api/drivers", {
       type: "POST",
