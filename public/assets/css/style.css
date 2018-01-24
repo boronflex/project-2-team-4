@@ -74,3 +74,11 @@ list-style: none;
 #turn-by-turn {
   /* border: 1px solid orange; */
 }
+
+#manifest-list {
+/* border: 1px solid red; */
+}
+
+.name-li {
+  /* color: red; */
+}
