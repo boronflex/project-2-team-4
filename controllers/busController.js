@@ -39,7 +39,7 @@ router.get("/driver-info-page", function(req, res) {
       busrider: true
     }
   }).then(function(dbStu) {
-    chalkAnimation.rainbow("Student Table Querried", 2);
+    chalkAnimation.rainbow("Student Table Queried", 2);
     // console.log("dbStu =", dbStu[0].student_first_name);
 
     var addresses;
