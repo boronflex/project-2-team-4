@@ -50,6 +50,14 @@ body {
   height: 174px;
 }
 
+#submit {
+  margin-top: 15px;
+}
+
+#submit:hover {
+  background-color: #eeeb4e;
+}
+
 .map-li {
 list-style: none;
 }
@@ -62,7 +70,8 @@ list-style: none;
 
 .map-li:hover
 {
-    background-color: lightyellow;
+    background-color: #eeeb4e;
+    font-weight: bold;
 }
 
 .map-li:hover:before
@@ -71,18 +80,32 @@ list-style: none;
     margin-right:5px;
 }
 
-#turn-by-turn {
-  /* border: 1px solid orange; */
-}
-
-#manifest-list {
-/* border: 1px solid red; */
+#routing-div {
+  /* border: 1px solid #eeeb4e; */
+  padding: 15px;
 }
 
 .name-li {
+  list-style: none;
   color: white;
+  font-size: 20px;
+}
+
+.name-li:before {
+  content: "\2610";
+  margin-right:5px;
+}
+
+#manifest-div {
+  /* border: 1px solid #eeeb4e; */
+  padding: 15px;
 }
 
 #manifest-header {
   color: white;
+}
+
+.directions-text {
+  color: white;
+  font-size: 20px;
 }

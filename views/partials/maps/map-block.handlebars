@@ -8,11 +8,11 @@
       <div>
         <b>Start:</b>
         <select id="start">
-          <option value="3200 W Davis St, Conroe, TX 77304">CHS</option>
+          <option class="directions-text" value="3200 W Davis St, Conroe, TX 77304">CHS</option>
         </select>
         <br>
         <b>Waypoints:</b> <br>
-        <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+        <i class="directions-text">(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
         <select multiple id="waypoints">
           {{#each addresses}}
             <option value="{{this}}">{{this}}</option>
@@ -28,20 +28,24 @@
         <br>
         <input type="submit" id="submit">
       </div>
-      <div id="directions-panel"></div>
+      <!-- <div id="directions-panel"></div> -->
     </div>
   </div>
 
   <div class="row">
-      <p id="turn-by-turn">
-          <ul id="steps-list">
+    <div id="routing-div">
+      <h2 id="routing-header">Routing</h2>
+
+      <p class="directions-text" id="turn-by-turn">
+          <ul class="directions-text" id="steps-list">
           </ul>
       </p>
+    </div>
   </div>
 
   <div class="row"></div>
-  <div>
-    <h2>Student Manifest</h2>
+  <div id="manifest-div">
+    <h2 id="manifest-header">Student Manifest</h2>
 
     <ul id="manifest-list-students">
       {{#each students}}
