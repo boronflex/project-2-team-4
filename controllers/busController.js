@@ -45,7 +45,7 @@ router.get("/driver-info-page", function(req, res) {
       busrider: true
     }
   }).then(function(dbStu) {
-    console.log("student query happened");
+    chalkAnimation.rainbow("Student Table Querried", 2);
     // console.log("dbStu =", dbStu[0].student_first_name);
 
     var addresses;
@@ -77,9 +77,11 @@ router.get("/driver-info-page", function(req, res) {
     var hbsObject = {
       addresses: addressesArr,
       lastnames: lastNamesArr,
-      firstnames: firstNamesArr
-
+      firstnames: firstNamesArr,
+      students: dbStu
     };
+
+
 
     res.render("driver-info-page", hbsObject);
 
