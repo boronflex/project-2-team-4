@@ -105,27 +105,23 @@ $(function() {
 
 // parent event ################################################################
 
-  $(".add-driver-form").on("submit", function(event) {
+  $(".search-child-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newDriver = {
-      driver_first_name: $("#input-driver-first-name").val().trim(),
-      driver_last_name: $("#input-driver-last-name").val().trim(),
-      driver_img: $("#input-image").val().trim(),
-      driver_comments: $("#input-comments").val().trim(),
-      BusId: parseInt($("#assign-driver-bus").val().trim())
+    var searchKid = {
+      get_child_name: $("#input-driver-first-name").val().trim()
     };
 
     console.log(newDriver);
 
-    // Send the POST request.
+    // Send the GET request.
     $.ajax("/api/drivers", {
-      type: "POST",
-      data: newDriver
+      type: "GET",
+      data: searchKid
     }).then(
       function() {
-        console.log("added new driver");
+        console.log("searching for kid");
         // Reload the page to get the updated list
         //location.reload();
       }
