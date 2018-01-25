@@ -31,8 +31,8 @@ $(function() {
     }).then(
       function() {
         console.log("added new student");
-        // Reload the page to get the updated list
-        //location.reload();
+        //Reload the page to get the updated list
+        location.reload();
       }
     );
   });
