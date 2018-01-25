@@ -63,7 +63,7 @@ router.get("/driver-info-page", function(req, res) {
 });
 
 // POST route for saving a new student
-router.post("/api/students", function(req, res) {
+router.post("/inputs", function(req, res) {
   // create takes an argument of an object describing the item we want to
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
@@ -78,6 +78,7 @@ router.post("/api/students", function(req, res) {
 
     }).then(function(dbStu) {
       res.json(dbStu);
+
     })
     .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown

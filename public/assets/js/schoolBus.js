@@ -17,15 +17,13 @@ $(function() {
       guardian_name: $("#input-guardian-name").val().trim(),
       guardian_email: $("#input-email").val().trim(),
       address: studentAddress,
-      busrider: true //will need to change this in the future- not set up on form yet
+      busrider: $("#input-transportation").is(":checked"),
+      gender: $("#input-gender").val().trim()
     };
-
-    console.log(studentAddress);
-    console.log(newStudent);
 
 
     // Send the POST request.
-    $.ajax("/api/students", {
+    $.ajax("/inputs", {
       type: "POST",
       data: newStudent
     }).then(
