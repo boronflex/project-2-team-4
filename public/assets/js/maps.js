@@ -2,6 +2,11 @@ var mySteps = [];
 var stepsArr = [];
 var steps;
 
+
+// $(document).ready(function() {
+//   console.log("maps code loaded!");
+
+
 function initMap() {
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -16,6 +21,8 @@ function initMap() {
 
   document.getElementById('submit').addEventListener('click', function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
+    document.getElementById("steps-list").innerHTML = "";
+
   });
 }
 
@@ -58,9 +65,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         stepsArr = route.legs[i].steps;
 
         for (var j = 0; j < stepsArr.length; j++) {
-          steps = '<li>' + stepsArr[j].instructions + '</li>' + '<br>';
+          steps = '<li class="map-li">' + stepsArr[j].instructions + '</li>' + '<br>';
 
-          console.log("steps:", steps);
+          // console.log("steps:", steps);
           $("#steps-list").append(steps);
         }
 
@@ -70,3 +77,5 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }
   });
 }
+
+// });
