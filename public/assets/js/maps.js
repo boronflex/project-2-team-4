@@ -10,6 +10,9 @@ var steps;
 //
 //   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 // }
+// $(document).ready(function() {
+//   console.log("maps code loaded!");
+
 
 function initMap() {
   var directionsService = new google.maps.DirectionsService();
@@ -81,3 +84,5 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }
   });
 }
+
+// });
