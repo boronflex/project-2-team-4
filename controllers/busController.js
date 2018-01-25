@@ -274,12 +274,12 @@ router.put("/api/drivers", function(req, res) {
 
 //==========Driver Image=============================
 
-router.post("/api/image", function(req, res) {
+router.post("/api/driver", function(req, res) {
 
-  console.log(req.body.imagex);
+  console.log(req.body.driver_img);
   
   db.driver.update({
-    driver_img: req.body.imagex
+    driver_img: req.body.driver_img
   },  {
     where: {
       id: req.body.id

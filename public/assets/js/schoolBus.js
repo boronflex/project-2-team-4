@@ -92,7 +92,7 @@ $(function() {
       function() {
         console.log("added new driver");
         // Reload the page to get the updated list
-        location.reload();
+        //location.reload();
       }
     );
   });
