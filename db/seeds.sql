@@ -1,6 +1,10 @@
 /* Seed data for buses */
 INSERT INTO BUSES (bus_number, capacity, home_base) VALUES (12, 70, "chs");
 
+INSERT INTO BUSES (bus_number, capacity, home_base) VALUES (17, 70, "chs");
+
+INSERT INTO BUSES (bus_number, capacity, home_base) VALUES (25, 70, "chs");
+
 /* seed data for students*/
 INSERT INTO students (student_last_name, student_first_name, gender, guardian_name, guardian_email, address, busrider) VALUES ("Smith", "Tommy", "Male", "Pamela Smith", "psmith@email.com", "200 Fountain Lane Conroe Texas 77304", True);
 
@@ -13,4 +17,8 @@ INSERT INTO students (student_last_name, student_first_name, gender, guardian_na
 INSERT INTO students (student_last_name, student_first_name, gender, guardian_name, guardian_email, address, busrider) VALUES ("Juarez", "Emma", "Female", "Marta Juarez", "mj@email.com", "1024 N San Jacinto St Conroe, TX 77301", True);
 
 /* seed data for bus driver */
-INSERT INTO drivers (driver_first_name, driver_last_name, driver_img, driver_comments) VALUES ('Bussy', 'Gonzalez', 'Drives very spiffily');
+INSERT INTO drivers (driver_first_name, driver_last_name, driver_img, driver_comments) VALUES ('Bussy', 'Gonzalez', 'driver_img_url_placehoder', 'Drives very spiffily');
+
+INSERT INTO drivers (driver_first_name, driver_last_name, driver_img, driver_comments) VALUES ('Bussy', 'Gonzalez', 'driver_img_url_placehoder', 'Drives very spiffily');
+
+INSERT INTO drivers (driver_first_name, driver_last_name, driver_img, driver_comments) VALUES ('Bussy', 'Gonzalez', 'driver_img_url_placehoder', 'Drives very spiffily');
