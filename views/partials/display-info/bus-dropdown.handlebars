@@ -1,0 +1,15 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="bus-id" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Assign to Bus
+      <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      {{#each busNumber}}
+          <li value="{{this}}">{{this}}</li>
+      {{/each}}
+      
+      {{!-- <li><a href="#">Bus ##</a></li>
+      <li><a href="#">Bus ###</a></li>
+      <li><a href="#">Bus ####</a></li> --}}
+  </ul>
+</div>

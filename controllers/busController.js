@@ -15,7 +15,30 @@ router.get("/", function(req, res) {
 
 //input form for driver, student, and bus
 router.get("/inputs", function(req, res) {
-  res.render("inputs");
+  
+  db.Bus.findAll({
+
+  }).then(function(dbBus) {
+    chalkAnimation.rainbow("Bus table queried", 2);
+    // console.log("dbStu =", dbStu[0].student_first_name);
+
+    var busNumber;
+    var busNumberArr = [];
+
+    for (let busNumber of Object.values(dbBus)) {
+      busNumber = busNumber.bus_number;
+      busNumberArr.push(busNumber);
+
+    } //end of loop
+
+    var hbsObject = {
+      busNumber: busNumberArr,
+    };
+
+    res.render("inputs", hbsObject);
+
+  });
+
 });
 
 //bus driver info page with map, directions, manifest
@@ -63,7 +86,7 @@ router.get("/driver-info-page", function(req, res) {
 });
 
 // POST route for saving a new student
-router.post("/api/students", function(req, res) {
+router.post("/inputs", function(req, res) {
   // create takes an argument of an object describing the item we want to
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
@@ -78,6 +101,7 @@ router.post("/api/students", function(req, res) {
 
     }).then(function(dbStu) {
       res.json(dbStu);
+
     })
     .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown

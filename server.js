@@ -47,7 +47,8 @@ app.use("/", routes);
 // =============================================================
 db.sequelize.sync({
 
-  // force: true
+  //force: true
+
   logging: true
 
 }).then(function() {
