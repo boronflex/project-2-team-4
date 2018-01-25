@@ -24,20 +24,25 @@ router.get("/inputs", function(req, res) {
 
     var busNumber;
     var busNumberArr = [];
-
+    
     for (let busNumber of Object.values(dbBus)) {
-      busNumber = busNumber.bus_number;
+      busNumber = busNumber.dataValues//.bus_number;
       busNumberArr.push(busNumber);
-
-    } //end of loop
+    }
 
     var hbsObject = {
       busNumber: busNumberArr,
     };
 
+    // console.log(hbsObject);
+
+    // console.log(hbsObject.busNumber[0].id);
+
     res.render("inputs", hbsObject);
 
   });
+
+  // res.render("inputs");
 
 });
 
@@ -97,9 +102,16 @@ router.post("/inputs", function(req, res) {
       guardian_name: req.body.guardian_name,
       guardian_email: req.body.guardian_email,
       address: req.body.address,
-      busrider: req.body.busrider
+      busrider: req.body.busrider,
+      BusId: req.body.BusId
 
-    }).then(function(dbStu) {
+    }
+    // , {
+    //   include:[{
+    //     association: buses.BusId
+    //   }]
+    // }
+    ).then(function(dbStu) {
       res.json(dbStu);
 
     })

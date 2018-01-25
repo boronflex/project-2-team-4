@@ -32,7 +32,10 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Bus.associate = function(models) {
-        Bus.hasMany(models.Student, {});
+
+        Bus.hasMany(models.Student, {
+
+        });
     };
 
     return Bus;

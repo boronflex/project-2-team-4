@@ -19,8 +19,7 @@ $(function() {
       address: studentAddress,
       busrider: $("#input-transportation").is(":checked"),
       gender: $("#input-gender").val().trim(),
-      busrider: true, //will need to change this in the future- not set up on form yet
-      BusId: $("#bus-id").val().trim()
+      BusId: parseInt($("#assign-student-bus").val().trim())
     };
 
 
