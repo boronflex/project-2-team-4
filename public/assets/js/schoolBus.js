@@ -17,7 +17,8 @@ $(function() {
       guardian_name: $("#input-guardian-name").val().trim(),
       guardian_email: $("#input-email").val().trim(),
       address: studentAddress,
-      busrider: true //will need to change this in the future- not set up on form yet
+      busrider: true, //will need to change this in the future- not set up on form yet
+      BusId: $("#bus-id").val().trim()
     };
 
     console.log(studentAddress);

@@ -15,7 +15,30 @@ router.get("/", function(req, res) {
 
 //input form for driver, student, and bus
 router.get("/inputs", function(req, res) {
-  res.render("inputs");
+  
+  db.Bus.findAll({
+
+  }).then(function(dbBus) {
+    chalkAnimation.rainbow("Bus table queried", 2);
+    // console.log("dbStu =", dbStu[0].student_first_name);
+
+    var busNumber;
+    var busNumberArr = [];
+
+    for (let busNumber of Object.values(dbBus)) {
+      busNumber = busNumber.bus_number;
+      busNumberArr.push(busNumber);
+
+    } //end of loop
+
+    var hbsObject = {
+      busNumber: busNumberArr,
+    };
+
+    res.render("inputs", hbsObject);
+
+  });
+
 });
 
 //bus driver info page with map, directions, manifest
