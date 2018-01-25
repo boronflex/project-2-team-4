@@ -19,8 +19,8 @@ $(function() {
       address: studentAddress,
       busrider: $("#input-transportation").is(":checked"),
       gender: $("#input-gender").val().trim(),
-      busrider: true, //will need to change this in the future- not set up on form yet
-      BusId: $("#bus-id").val().trim()
+      busrider: $("#input-transportation").is(":checked"),
+      BusId: $("#bus-id option:selected").text()
     };
 
 
@@ -35,7 +35,28 @@ $(function() {
         location.reload();
       }
     );
+
+    // Send the PUT request. (update student)
+    $.ajax("/inputs", {
+      type: "POST",
+      data: newStudent
+    }).then(
+      function() {
+        console.log("student info updated");
+        //Reload the page to get the updated list
+        location.reload();
+      }
+    );
   });
+
+  //begin on click event for update student Information
+  //       $(".update-student-form").on("submit", function(event) {
+  //           event.preventDefault();
+  // var updatedStudent = {
+  //
+  // }
+  //         }
+
 
   //end student events######################################################
 
