@@ -171,8 +171,9 @@ router.get("/api/parent-search/:fname/:lname", function(req, res) {
 
   db.Student.findOne({
     where: {
-      student_first_name: req.params.name
-      //student_last_name: req.body.student_last_name
+      student_first_name: studentFirstName,
+      student_last_name: studentLastName
+      //need to add include here to get bus and driver info
     }
   }).then(function(dbStu) {
 
@@ -184,7 +185,7 @@ router.get("/api/parent-search/:fname/:lname", function(req, res) {
       students: dbStu
     };
 
-    //console.log(hbsObject);
+    console.log(hbsObject);
 
     res.render("parent-info-page", hbsObject);
 
