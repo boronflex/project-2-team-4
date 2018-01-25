@@ -56,7 +56,6 @@ module.exports = function(sequelize, DataTypes) {
         busrider: {
             allowNull: false,
             type: DataTypes.BOOLEAN
-
         }
     }, {
 
@@ -67,9 +66,9 @@ module.exports = function(sequelize, DataTypes) {
     Student.associate = function(models) {
 
         Student.belongsTo(models.Bus, {
-            // foreignKey: {
-            //   allowNull: false
-            // }
+            foreignKey: {
+                allowNull: true
+            },
         });
     };
 

@@ -18,7 +18,7 @@ $(function() {
       guardian_email: $("#input-email").val().trim(),
       address: studentAddress,
       busrider: true, //will need to change this in the future- not set up on form yet
-      BusId: $("#bus-id").val().trim()
+      BusId: parseInt($("#assign-student-bus").val().trim())
     };
 
     console.log(studentAddress);

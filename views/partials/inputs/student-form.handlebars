@@ -105,6 +105,7 @@
                     <option value="WV">West Virginia</option>
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
+                </option>
             </select>
         </div>
 
@@ -113,13 +114,22 @@
             <input type="text" class="form-control" id="input-zip">
         </div>
 
+        <div class="form-group col-md-4">
+            <label for="assign-student-bus">Pick bus</label>
+            <select id="assign-student-bus" class="form-control">
+                <option selected>Choose...</option>
+                <option>
+                    {{#each busNumber}}
+                        <option value="{{this.id}}">{{this.bus_number}}</option>
+                    {{/each}}
+                </option>
+
+            </select>
+        </div>
+
     </div>
 
-    <div class="form-row">
 
-        {{> display-info/bus-dropdown}}
-
-    </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
 
