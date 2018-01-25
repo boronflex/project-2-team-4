@@ -162,27 +162,29 @@ router.put("/api/students", function(req, res) {
 });
 
 //route to display bus and driver student is assigned to
-router.get("/api/parent-search", function(req, res) {
+router.get("/api/parent-search/:fname/:lname", function(req, res) {
   // findAll returns all entries for a table when used with no options
 
-  console.log(req.body.student_first_name);
+  studentFirstName = req.params.fname
+  studentLastName = req.params.lname
+  console.log(studentFirstName, studentLastName);
 
   db.Student.findOne({
     where: {
-      student_first_name: req.body.student_first_name
+      student_first_name: req.params.name
       //student_last_name: req.body.student_last_name
     }
   }).then(function(dbStu) {
 
     chalkAnimation.rainbow("Student Table Queried", 2);
 
-    console.log(dbStu);
+    //console.log(dbStu);
 
     var hbsObject = {
       students: dbStu
     };
 
-    console.log(hbsObject);
+    //console.log(hbsObject);
 
     res.render("parent-info-page", hbsObject);
 

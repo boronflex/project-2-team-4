@@ -1,5 +1,5 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(function() {
+$(document).ready(function() {
 
   //student events########################################
 
@@ -119,17 +119,12 @@ $(function() {
 
     console.log(searchKid);
 
-    var parentSearch = {
-      student_first_name: searchKid[0],
-      student_last_name: searchKid[1]
-    }
-
-    console.log(parentSearch);
+    var student_first_name = searchKid[0]
+    var student_last_name = searchKid[1]
 
     // Send the GET request.
-    $.ajax("/api/parent-search", {
-      type: "GET",
-      data: parentSearch
+    $.ajax(`/api/parent-search/${student_first_name}/${student_last_name}`, {
+      method: "GET"
     }).then(
       function(data) {
         console.log("searching for kid");
