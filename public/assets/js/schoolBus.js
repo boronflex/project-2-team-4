@@ -109,18 +109,29 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var searchKid = {
-      get_child_name: $("#input-driver-first-name").val().trim()
-    };
+    var searchKid = $("#student-name-to-search").val().trim();
 
-    console.log(newDriver);
+    // var regExp = /[^a-zA-Z\s]/;
+
+    // searchKid = searchKid.match(regExp); 
+
+    searchKid = searchKid.split(" ");
+
+    console.log(searchKid);
+
+    var parentSearch = {
+      student_first_name: searchKid[0],
+      student_last_name: searchKid[1]
+    }
+
+    console.log(parentSearch);
 
     // Send the GET request.
-    $.ajax("/api/drivers", {
+    $.ajax("/api/parent-search", {
       type: "GET",
-      data: searchKid
+      data: parentSearch
     }).then(
-      function() {
+      function(data) {
         console.log("searching for kid");
         // Reload the page to get the updated list
         //location.reload();
