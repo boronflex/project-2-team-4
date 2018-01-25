@@ -2,21 +2,9 @@ var mySteps = [];
 var stepsArr = [];
 var steps;
 
-// function initialize() {
-//   var mapOptions = {
-//     zoom: 12,
-//     center: new google.maps.LatLng(16.8451789, 96.1439764)
-//   };
-//
-//   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-// }
-// $(document).ready(function() {
-//   console.log("maps code loaded!");
-
-
 function initMap() {
-  var directionsService = new google.maps.DirectionsService();
-  var directionsDisplay = new google.maps.DirectionsRenderer();
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer;
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 6,
     center: {
@@ -28,8 +16,6 @@ function initMap() {
 
   document.getElementById('submit').addEventListener('click', function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
-    document.getElementById("steps-list").innerHTML = "";
-
   });
 }
 
@@ -72,9 +58,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         stepsArr = route.legs[i].steps;
 
         for (var j = 0; j < stepsArr.length; j++) {
-          steps = '<li class="map-li">' + stepsArr[j].instructions + '</li>' + '<br>';
+          steps = '<li>' + stepsArr[j].instructions + '</li>' + '<br>';
 
-          // console.log("steps:", steps);
+          console.log("steps:", steps);
           $("#steps-list").append(steps);
         }
 
@@ -84,5 +70,3 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }
   });
 }
-
-// });
