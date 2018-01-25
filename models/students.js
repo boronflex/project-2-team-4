@@ -1,6 +1,6 @@
 var Sequelize = require("sequelize");
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
     var Student = sequelize.define('Student', {
         student_last_name: {
@@ -59,11 +59,11 @@ module.exports = function(sequelize, DataTypes) {
         }
     }, {
 
-        timestamps: false
+            timestamps: false
 
-    });
+        });
 
-    Student.associate = function(models) {
+    Student.associate = function (models) {
 
         Student.belongsTo(models.Bus, {
             foreignKey: {

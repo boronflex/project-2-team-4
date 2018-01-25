@@ -258,7 +258,8 @@ router.post("/api/drivers", function(req, res) {
       driver_first_name: req.body.driver_first_name,
       driver_last_name: req.body.driver_last_name,
       driver_img: req.body.driver_img,
-      driver_comments: req.body.driver_comments
+      driver_comments: req.body.driver_comments,
+      BusId: req.body.BusId
 
     }).then(function(dbDriver) {
       res.json(dbDriver);

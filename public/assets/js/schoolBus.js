@@ -21,7 +21,7 @@ $(function() {
       BusId: parseInt($("#assign-student-bus").val().trim())
     };
 
-    console.log(studentAddress);
+    //console.log(studentAddress);
     console.log(newStudent);
 
 
@@ -76,12 +76,14 @@ $(function() {
     event.preventDefault();
 
     var newDriver = {
-      driver_first_name: $("#input-first-name").val().trim(),
-      driver_last_name: $("#input-last-name").val().trim(),
+      driver_first_name: $("#input-driver-first-name").val().trim(),
+      driver_last_name: $("#input-driver-last-name").val().trim(),
       driver_img: $("#input-image").val().trim(),
       driver_comments: $("#input-comments").val().trim(),
+      BusId: parseInt($("#assign-driver-bus").val().trim())
     };
 
+    console.log(newDriver);
 
     // Send the POST request.
     $.ajax("/api/drivers", {
@@ -91,7 +93,7 @@ $(function() {
       function() {
         console.log("added new driver");
         // Reload the page to get the updated list
-        location.reload();
+        //location.reload();
       }
     );
   });
