@@ -7,11 +7,9 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var studentAddress = `${$("#input-address").val().trim()}
-                          ${$("#input-address-2").val().trim()}
-                          ${$("#input-city").val().trim()}
-                          ${$("#input-state").val().trim()}
-                          ${$("#input-zip").val().trim()}`;
+    var studentAddress = `${$("#input-address").val().trim()} ${$("#input-address-2").val().trim()} ${$("#input-city").val().trim()} ${$("#input-state").val().trim()} ${$("#input-zip").val().trim()}`;
+
+    console.log(studentAddress);
 
     var newStudent = {
       student_first_name: $("#input-first-name").val().trim(),
@@ -34,7 +32,7 @@ $(function() {
       function() {
         console.log("added new student");
         // Reload the page to get the updated list
-        location.reload();
+        //location.reload();
       }
     );
   });
