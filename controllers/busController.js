@@ -276,10 +276,10 @@ router.put("/api/drivers", function(req, res) {
 
 router.post("/api/image", function(req, res) {
 
-  console.log(req.body.driver_img);
+  console.log(req.body.imagex);
   
   db.driver.update({
-    driver_img: req.body.driver_img
+    driver_img: req.body.imagex
   },  {
     where: {
       id: req.body.id
