@@ -1,12 +1,23 @@
-this page is going to show the drivers their info
+{{> nav/header}}
 
-{{!-- need to be able to search by bus number or drive name --}}
-<label for="input-driverbus-number">Bus No.</label>
-<input type="input" class="form-control" id="input-driverbus-number">
-<button type="submit" class="btn btn-primary">Search</button>
+<div class="text-center">
+    <div class="container">
 
-{{> maps/map-block}}
+        {{!-- #########################body goes in here####################################### --}}
 
+        <div class="row">
 
+            <div class="col-md-12">
+                
+                {{> display-info/driver-info-block}}
 
-need to show manifest, student name, guardian name, address?
+            </div>
+
+        </div>
+
+        {{!-- #########################body goes in here####################################### --}}
+
+    </div>
+</div>
+
+{{> nav/footer}}

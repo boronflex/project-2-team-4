@@ -1,5 +1,23 @@
-this page is going to show the parents their info
+{{> nav/header}}
 
-search student name box
+<div class="text-center">
+    <div class="container">
 
-display bus driver, image, bus number, and possibly route 
+        {{!-- #########################body goes in here####################################### --}}
+
+        <div class="row">
+
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8">
+                {{> display-info/parent-info-block}}
+            </div>
+
+        </div>
+
+        {{!-- #########################body goes in here####################################### --}}
+
+    </div>
+</div>
+
+{{> nav/footer}}

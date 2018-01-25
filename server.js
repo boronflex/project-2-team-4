@@ -46,9 +46,12 @@ app.use("/", routes);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({
-  force: true
+
+  // force: true
+  logging: true
+
 }).then(function() {
   app.listen(PORT, function() {
-    chalkAnimation.rainbow("App listening on PORT " + PORT);
+    chalkAnimation.rainbow("App listening on PORT ", 2 + PORT);
   });
 });

@@ -22,12 +22,21 @@ h6,
 span,
 p {
     font-family: 'Open Sans', Arial, Helvetice Neue, sans-serif;
+    color: white;
 }
 
 * {
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
     border-radius: 0 !important;
+}
+
+label {
+    color: white;
+}
+
+b {
+    color: white;
 }
 
 .templatemo_clear {
@@ -380,58 +389,58 @@ p {
 }
 
 .social-icon-fb {
-    background: url('../../templatemo_395_urbanic/images/social-icon-fb.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-fb.png') no-repeat; */
     width: 42px;
     height: 42px;
     display: block;
 }
 
 a:hover .social-icon-fb {
-    background: url('../../templatemo_395_urbanic/images/social-icon-fb-over.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-fb-over.png') no-repeat; */
 }
 
 .social-icon-rss {
-    background: url('../../templatemo_395_urbanic/images/social-icon-rss.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-rss.png') no-repeat; */
     width: 42px;
     height: 42px;
     display: block;
 }
 
 a:hover .social-icon-rss {
-    background: url('../../templatemo_395_urbanic/images/social-icon-rss-over.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-rss-over.png') no-repeat; */
 }
 
 .social-icon-twitter {
-    background: url('../../templatemo_395_urbanic/images/social-icon-twitter.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-twitter.png') no-repeat; */
     width: 42px;
     height: 42px;
     display: block;
 }
 
 a:hover .social-icon-twitter {
-    background: url('../../templatemo_395_urbanic/images/social-icon-twitter-over.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-twitter-over.png') no-repeat; */
 }
 
 .social-icon-linkedin {
-    background: url('../../templatemo_395_urbanic/images/social-icon-linkedin.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-linkedin.png') no-repeat; */
     width: 42px;
     height: 42px;
     display: block;
 }
 
 a:hover .social-icon-linkedin {
-    background: url('../../templatemo_395_urbanic/images/social-icon-linkedin-over.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-linkedin-over.png') no-repeat; */
 }
 
 .social-icon-dribbble {
-    background: url('../../templatemo_395_urbanic/images/social-icon-dribbble.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-dribbble.png') no-repeat; */
     width: 42px;
     height: 42px;
     display: block;
 }
 
 a:hover .social-icon-dribbble {
-    background: url('../../templatemo_395_urbanic/images/social-icon-dribbble-over.png') no-repeat;
+    /* background: url('../../templatemo_395_urbanic/images/social-icon-dribbble-over.png') no-repeat; */
 }
 
 ul.templatemo-project-gallery li a img:hover {}

@@ -2,13 +2,9 @@ const express = require("express");
 const router = express.Router();
 const chalkAnimation = require('chalk-animation');
 
-
 //import models
 
 var db = require("../models");
-// const bus = require( "../models/buses.js" );
-// const drivers = require( "../models/drivers.js" );
-// const students = require( "../models/students.js" );
 
 //html routes=================================================
 
@@ -23,29 +19,27 @@ router.get("/inputs", function(req, res) {
 });
 
 //bus driver info page with map, directions, manifest
-router.get("/driver-info-page", function(req, res) {
-  res.render("driver-info-page");
-});
+// router.get("/driver-info-page", function(req, res) {
+//   res.render("driver-info-page");
+// });
 
 //parent info name with driver info
 router.get("/parent-info-page", function(req, res) {
   res.render("parent-info-page");
 });
 
-
 //api routes==================================================
-
 
 //all routes for students table
 // GET route for getting all of the students
-router.get("/api/students", function(req, res) {
+router.get("/driver-info-page", function(req, res) {
   // findAll returns all entries for a table when used with no options
   db.Student.findAll({
     where: {
       busrider: true
     }
   }).then(function(dbStu) {
-    console.log("student query happened");
+    chalkAnimation.rainbow("Student Table Queried", 2);
     // console.log("dbStu =", dbStu[0].student_first_name);
 
     var addresses;
@@ -57,28 +51,9 @@ router.get("/api/students", function(req, res) {
 
     } //end of loop
 
-    var lastNames;
-    var firstNames;
-    var lastNamesArr = [];
-    var firstNamesArr = [];
-
-    for (var i = 0; i < dbStu.length; i++) {
-      lastNames = dbStu[i].student_last_name;
-      lastNamesArr.push(lastNames)
-      console.log(lastNamesArr);
-    }
-
-    for (var i = 0; i < dbStu.length; i++) {
-      firstNames = dbStu[i].student_first_name;
-      firstNamesArr.push(firstNames)
-      console.log(firstNamesArr);
-    }
-
     var hbsObject = {
       addresses: addressesArr,
-      lastnames: lastNamesArr,
-      firstnames: firstNamesArr
-
+      students: dbStu
     };
 
     res.render("driver-info-page", hbsObject);
@@ -159,7 +134,7 @@ router.put("/api/students", function(req, res) {
 router.get("/api/buses", function(req, res) {
   // findAll returns all entries for a table when used with no options
   db.Bus.findAll({}).then(function(dbBus) {
-    console.log("bus query happened");
+    chalkAnimation.rainbow("bus table querried", 2);
     // We have access to the buses as an argument inside of the callback function
     // res.render("index.handlebars");
     res.json(dbBus);
