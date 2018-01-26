@@ -186,19 +186,24 @@ router.get("/api/parent-search/:fname/:lname", function(req, res) {
 
     var busNumber = dbStu.dataValues.Bus.dataValues.bus_number
 
-    var hbsObject = {
+    var studentInfo= [studentName, busNumber]
 
-      studentName: studentName,
-      busNumber: busNumber
+      // studentName: studentName,
+      // busNumber: busNumber
 
       // driverName:,
       // driverImage:,
-      
+
+    var hbsObject = {
+      studentInfo: studentInfo
     };
+      
 
     console.log(hbsObject);
 
     res.render("parent-info-page", hbsObject);
+
+    //res.json(hbsObject)
 
   });
 

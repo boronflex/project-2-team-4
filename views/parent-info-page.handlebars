@@ -5,6 +5,19 @@
 
         {{!-- #########################body goes in here####################################### --}}
 
+        <div class="panel panel-default">
+            <div class="panel-heading">test</div>
+            <div class="panel-body" id="show-student-name">
+
+                <ul>
+                {{#each studentInfo}}
+                    <li>{{this.studentName}}</li>
+                {{/each}}
+                </ul>
+
+            </div>
+        </div>
+
         <div class="row">
 
             <div class="col-md-2"></div>

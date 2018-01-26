@@ -123,10 +123,9 @@ $(document).ready(function() {
     var student_last_name = searchKid[1]
 
     // Send the GET request.
-    $.ajax(`/api/parent-search/${student_first_name}/${student_last_name}`, {
-      method: "GET"
-    }).then(
+    $.get(`/api/parent-search/${student_first_name}/${student_last_name}`,
       function(data) {
+        //console.log(data)
         console.log("searching for kid");
         // Reload the page to get the updated list
         location.reload();
