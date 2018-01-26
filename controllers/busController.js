@@ -162,6 +162,46 @@ router.put("/api/students", function(req, res) {
     });
 });
 
+//route to display bus and driver student is assigned to
+router.get("/api/parent-search/:fname/:lname", function(req, res) {
+  // findAll returns all entries for a table when used with no options
+
+  studentFirstName = req.params.fname
+  studentLastName = req.params.lname
+  console.log(studentFirstName, studentLastName);
+
+  db.Student.findOne({
+    where: {
+      student_first_name: studentFirstName,
+      student_last_name: studentLastName
+      //need to add include here to get bus and driver info
+    },
+    include: [db.Bus]
+  }).then(function(dbStu) {
+
+    chalkAnimation.rainbow("Student Table Queried", 2);
+
+    //console.log(dbStu.dataValues);
+
+    var hbsObject = {
+
+      studentName: `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`,
+      
+      // driverName:,
+      // driverImage:,
+      busNumber: dbStu.dataValues.Bus.dataValues.bus_number
+
+
+    };
+
+    console.log(hbsObject);
+
+    res.render("parent-info-page", hbsObject);
+
+  });
+
+});
+
 //======================begin buses======================================================================
 
 
