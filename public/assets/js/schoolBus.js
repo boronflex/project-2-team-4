@@ -129,7 +129,7 @@ $(document).ready(function() {
       function(data) {
         console.log("searching for kid");
         // Reload the page to get the updated list
-        //location.reload();
+        location.reload();
       }
     );
   });

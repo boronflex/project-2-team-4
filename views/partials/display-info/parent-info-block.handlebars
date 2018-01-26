@@ -19,7 +19,15 @@
 <div class="panel-group col-md-12">
   <div class="panel panel-default">
     <div class="panel-heading">Student</div>
-    <div class="panel-body" id="show-student-name">{{students}}</div>
+    <div class="panel-body" id="show-student-name">
+      <ul>
+        {{!-- {{#each students}}
+          <li>{{student_last_name}}, {{student_first_name}}</li>
+        {{/each}} --}}
+
+      </ul>
+
+    </div>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">Driver:</div>
@@ -36,7 +44,7 @@
   </div>
     <div class="panel panel-default">
     <div class="panel-heading">Bus Number:</div>
-    <div class="panel-body" id="show-driver-name">Panel Content</div>
+    <div class="panel-body" id="show-driver-name">{{bus_number}}</div>
   </div>
   {{!-- </div>
     <div class="panel panel-default">
