@@ -23,10 +23,10 @@
     },
 
     "production": {
-        "username": "root",
-        "password": null,
+        "username": "y7ikwne1za7vevne",
+        "password": "red9bhmg747r4jyg",
         "database": "busapp_db",
-        "host": "127.0.0.1",
+        "host": "y2w3wxldca8enczv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql",
         "operatorsAliases": false
 
