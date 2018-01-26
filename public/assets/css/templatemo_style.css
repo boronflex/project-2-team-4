@@ -5,7 +5,7 @@ html {
 
 body {
     background-image: url("../images/Background.svg");
-    font-family: 'Open Sans', Arial, Helvetice Neue, sans-serif;
+    font-family: Open Sans, Arial, Helvetice Neue, sans-serif;
     font-size: 12px;
     font-weight: 300;
     font-style: normal;
@@ -21,7 +21,7 @@ h5,
 h6,
 span,
 p {
-    font-family: 'Open Sans', Arial, Helvetice Neue, sans-serif;
+    font-family: Open Sans, Arial, Helvetice Neue, sans-serif;
     color: white;
 }
 
@@ -77,7 +77,7 @@ b {
 }
 
 .templatemo-slogan {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Open Sans, sans-serif;
     font-weight: normal;
     font-size: 42px;
     margin: 60px 0;
@@ -90,7 +90,7 @@ b {
 }
 
 .templatemo-service-item {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Open Sans, sans-serif;
     margin-bottom: 10px;
     font-size: 20px;
 }
@@ -104,7 +104,7 @@ b {
 }
 
 .subheader {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Open Sans, sans-serif;
     font-weight: normal;
     margin-top: 12px;
     font-size: 12px;
@@ -234,7 +234,7 @@ b {
 }
 
 .team-inner-header {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Open Sans, sans-serif;
     font-weight: 600;
     font-size: 16px;
 }
@@ -486,7 +486,7 @@ ul.templatemo-project-gallery li a img:hover {}
 .templatemo-tweets {
     background-color: #8996a0;
     min-height: 200px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Open Sans, sans-serif;
     font-size: 20px;
     color: #ffffff;
     margin-top: 100px;
