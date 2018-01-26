@@ -167,7 +167,7 @@ router.get("/api/parent-search/:fname/:lname", function(req, res) {
 
   studentFirstName = req.params.fname
   studentLastName = req.params.lname
-  console.log(studentFirstName, studentLastName);
+  //console.log(studentFirstName, studentLastName);
 
   db.Student.findOne({
     where: {
@@ -182,15 +182,18 @@ router.get("/api/parent-search/:fname/:lname", function(req, res) {
 
     //console.log(dbStu.dataValues);
 
+    var studentName = `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`;
+
+    var busNumber = dbStu.dataValues.Bus.dataValues.bus_number
+
     var hbsObject = {
 
-      studentName: `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`,
-      
+      studentName: studentName,
+      busNumber: busNumber
+
       // driverName:,
       // driverImage:,
-      busNumber: dbStu.dataValues.Bus.dataValues.bus_number
-
-
+      
     };
 
     console.log(hbsObject);

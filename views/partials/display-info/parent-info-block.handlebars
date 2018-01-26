@@ -16,16 +16,13 @@
 <br>
 <br>
 
+
 <div class="panel-group col-md-12">
   <div class="panel panel-default">
     <div class="panel-heading">Student</div>
     <div class="panel-body" id="show-student-name">
-      <ul>
-        {{#each students}}
-          <li>{{student_last_name}}, {{student_first_name}}</li>
-        {{/each}}
 
-      </ul>
+        {{hbsObject.studentName}}
 
     </div>
   </div>
@@ -42,15 +39,13 @@
       </picture>
     </div>
   </div>
-    <div class="panel panel-default">
+  <div class="panel panel-default">
     <div class="panel-heading">Bus Number:</div>
     <div class="panel-body" id="show-driver-name">{{bus_number}}</div>
   </div>
   {{!-- </div>
-    <div class="panel panel-default">
-    <div class="panel-heading">Route Number:</div>
-    <div class="panel-body" id="show-route-number">Panel Content</div>
-  </div> --}}
+<div class="panel panel-default">
+  <div class="panel-heading">Route Number:</div>
+  <div class="panel-body" id="show-route-number">Panel Content</div>
+</div> --}}
 </div>
-
-
