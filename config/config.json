@@ -2,7 +2,7 @@
 
     "development": {
         "username": "root",
-        "password": "password",
+        "password": null,
         "database": "busapp_db",
         "host": "localhost",
         "dialect": "mysql",
