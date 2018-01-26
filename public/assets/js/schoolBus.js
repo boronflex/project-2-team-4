@@ -39,93 +39,93 @@ $(document).ready(function() {
     );
 
     // Send the PUT request. (update student)
-    $.ajax("/inputs", {
-      type: "POST",
-      data: newStudent
-    }).then(
-      function() {
-        console.log("student info updated");
-        //Reload the page to get the updated list
-        location.reload();
-      }
-    );
+    //   $.ajax("/inputs", {
+    //     type: "POST",
+    //     data: newStudent
+    //   }).then(
+    //     function() {
+    //       console.log("student info updated");
+    //       //Reload the page to get the updated list
+    //       location.reload();
+    //     }
+    //   );
+    // });
+
+    //begin on click event for update student Information
+    //       $(".update-student-form").on("submit", function(event) {
+    //           event.preventDefault();
+    // var updatedStudent = {
+    //
+    // }
+    //         }
+
+
+    //end student events######################################################
+
+    //bus events########################################
+
+    $(".add-bus-form").on("submit", function(event) {
+      // Make sure to preventDefault on a submit event.
+      event.preventDefault();
+
+      var newBus = {
+        bus_number: $("#input-bus-number").val().trim(),
+        capacity: $("#capacity").val().trim(),
+        home_base: $("#input-home-base").val().trim()
+      };
+
+
+      // Send the POST request.
+      $.ajax("/api/buses", {
+        type: "POST",
+        data: newBus
+      }).then(
+        function() {
+          console.log("added new bus");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    });
+
+
+    //end bus events######################################################
+
+    //driver events########################################
+
+    $(".add-driver-form").on("submit", function(event) {
+      // Make sure to preventDefault on a submit event.
+      event.preventDefault();
+
+      var newDriver = {
+        driver_first_name: $("#input-driver-first-name").val().trim(),
+        driver_last_name: $("#input-driver-last-name").val().trim(),
+        driver_img: $("#input-image").val().trim(),
+        driver_comments: $("#input-comments").val().trim(),
+        BusId: parseInt($("#assign-driver-bus").val().trim())
+      };
+
+      console.log(newDriver);
+
+      // Send the POST request.
+      $.ajax("/api/drivers", {
+        type: "POST",
+        data: newDriver
+      }).then(
+        function() {
+          console.log("added new driver");
+          // Reload the page to get the updated list
+          //location.reload();
+        }
+      );
+    });
+
+
+    //end student events######################################################
+
   });
 
-  //begin on click event for update student Information
-  //       $(".update-student-form").on("submit", function(event) {
-  //           event.preventDefault();
-  // var updatedStudent = {
-  //
-  // }
-  //         }
-
-
-  //end student events######################################################
-
-  //bus events########################################
-
-  $(".add-bus-form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var newBus = {
-      bus_number: $("#input-bus-number").val().trim(),
-      capacity: $("#capacity").val().trim(),
-      home_base: $("#input-home-base").val().trim()
-    };
-
-
-    // Send the POST request.
-    $.ajax("/api/buses", {
-      type: "POST",
-      data: newBus
-    }).then(
-      function() {
-        console.log("added new bus");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-
-  //end bus events######################################################
-
-  //driver events########################################
-
-  $(".add-driver-form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var newDriver = {
-      driver_first_name: $("#input-driver-first-name").val().trim(),
-      driver_last_name: $("#input-driver-last-name").val().trim(),
-      driver_img: $("#input-image").val().trim(),
-      driver_comments: $("#input-comments").val().trim(),
-      BusId: parseInt($("#assign-driver-bus").val().trim())
-    };
-
-    console.log(newDriver);
-
-    // Send the POST request.
-    $.ajax("/api/drivers", {
-      type: "POST",
-      data: newDriver
-    }).then(
-      function() {
-        console.log("added new driver");
-        // Reload the page to get the updated list
-        //location.reload();
-      }
-    );
-  });
-
-
-  //end student events######################################################
-
-});
-
-// parent event ################################################################
+  // parent event ################################################################
 
   $(".search-child-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
@@ -135,14 +135,14 @@ $(document).ready(function() {
 
     // var regExp = /[^a-zA-Z\s]/;
 
-    // searchKid = searchKid.match(regExp); 
+    // searchKid = searchKid.match(regExp);
 
     searchKid = searchKid.split(" ");
 
     console.log(searchKid);
 
-    var student_first_name = searchKid[0]
-    var student_last_name = searchKid[1]
+    var student_first_name = searchKid[0];
+    var student_last_name = searchKid[1];
 
     // Send the GET request.
     $.ajax(`/api/parent-search/${student_first_name}/${student_last_name}`, {
@@ -155,3 +155,10 @@ $(document).ready(function() {
       }
     );
   });
+});
+
+//modal script
+
+$("#submit-student-new").on("click", function() {
+  $("#modal-student-add").modal('show');
+});

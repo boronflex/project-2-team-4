@@ -51,8 +51,8 @@
           <option>
               <option value="male">Male</option>
               <option value="female">Female</option>
-            </select>
-          </div>
+        </select>
+    </div>
 
     <div class="form-row">
       <div class="form-group col-md-4">
@@ -77,7 +77,6 @@
             <label for="input-state">State</label>
             <select id="input-state" class="form-control">
                 <option selected>Choose...</option>
-                <option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -142,7 +141,6 @@
             <label for="assign-student-bus">Pick bus</label>
             <select id="assign-student-bus" class="form-control">
                 <option selected>Choose...</option>
-                <option>
                     {{#each busNumber}}
                         <option value="{{this.id}}">{{this.bus_number}}</option>
                     {{/each}}
@@ -151,10 +149,32 @@
             </select>
         </div>
 
+        <div class="col-md-8">
+        <button type="submit" id="submit-student-new" data-toggle="modal" data-target="#modal-student-add" class="btn btn-primary">Submit</button>
+</div>
     </div>
 
-
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-
 </form>
+
+<!-- Begin modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="modal-student-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="student-add-modal-label">Student Data Successfully Entered</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="student-add-data-here"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End modal -->
