@@ -98,14 +98,17 @@ $(document).ready(function() {
     event.preventDefault();
 
     var newDriver = {
+
+      
       driver_first_name: $("#input-driver-first-name").val().trim(),
       driver_last_name: $("#input-driver-last-name").val().trim(),
-      driver_img: $("#input-image").val().trim(),
+      driver_img: imagex,
       driver_comments: $("#input-comments").val().trim(),
       BusId: parseInt($("#assign-driver-bus").val().trim())
     };
 
     console.log(newDriver);
+
 
     // Send the POST request.
     $.ajax("/api/drivers", {
@@ -115,12 +118,18 @@ $(document).ready(function() {
       function() {
         console.log("added new driver");
         // Reload the page to get the updated list
-        //location.reload();
+        location.reload();
       }
     );
   });
 
+//---------upload driver image button-------
 
+    $(document).on("click", "#upload", function() {
+      event.preventDefault();
+      console.log("here");
+      openPicker();
+    })
   //end student events######################################################
 
 });

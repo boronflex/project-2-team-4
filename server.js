@@ -46,6 +46,7 @@ app.use("/", routes);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({
+
   //force: true,
   logging: true
 
