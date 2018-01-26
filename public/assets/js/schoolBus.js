@@ -156,3 +156,9 @@ $(document).ready(function() {
     );
   });
 });
+
+//modal script
+
+$("#submit-student-new").on("click", function() {
+  $("#modal-student-add").modal('show');
+});
