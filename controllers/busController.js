@@ -285,6 +285,7 @@ router.post("/api/drivers", function(req, res) {
   // create takes an argument of an object describing the item we want to
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
+  console.log(req.body);
   db.Driver.create({
 
       driver_first_name: req.body.driver_first_name,
@@ -294,6 +295,7 @@ router.post("/api/drivers", function(req, res) {
       BusId: req.body.BusId
 
     }).then(function(dbDriver) {
+      console.log(dbDriver);
       res.json(dbDriver);
     })
     .catch(function(err) {
