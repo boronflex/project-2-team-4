@@ -31,7 +31,7 @@ router.get("/inputs", function(req, res) {
     }
 
     var hbsObject = {
-      busNumber: busNumberArr,
+      busNumber: busNumberArr
     };
 
     // console.log(hbsObject);
