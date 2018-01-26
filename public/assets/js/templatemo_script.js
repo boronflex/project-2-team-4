@@ -27,17 +27,17 @@ jQuery(function($) {
       scrollTo('#templatemo-top');
     });
 
-    // scroll to specific id when click on menu
-    $('.templatemo-top-menu .navbar-nav a').click(function(e) {
-      e.preventDefault();
-      var linkId = $(this).attr('href');
-      scrollTo(linkId);
-      if ($('.navbar-toggle').is(":visible") == true) {
-        $('.navbar-collapse').collapse('toggle');
-      }
-      $(this).blur();
-      return false;
-    });
+    // // scroll to specific id when click on menu
+    // $('.templatemo-top-menu .navbar-nav a').click(function(e) {
+    //   e.preventDefault();
+    //   var linkId = $(this).attr('href');
+    //   scrollTo(linkId);
+    //   if ($('.navbar-toggle').is(":visible") == true) {
+    //     $('.navbar-collapse').collapse('toggle');
+    //   }
+    //   $(this).blur();
+    //   return false;
+    // });
     /*
     var dt = window.atob('IHwgRGVzaWduOiA8YSByZWw9Im5vZm9sbG93IiBocmVmPSJodHRwOi8vd3d3LnRlbXBsYXRlbW8uY29tL3RtLTM5NS11cmJhbmljIiB0YXJnZXQ9Il9wYXJlbnQiPlVyYmFuaWM8L2E+'); // decode the string
     var div = document.getElementById('footer-line');
