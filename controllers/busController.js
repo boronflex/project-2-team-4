@@ -180,28 +180,30 @@ router.get("/api/parent-search/:fname/:lname", function(req, res) {
 
     chalkAnimation.rainbow("Student Table Queried", 2);
 
-    //console.log(dbStu.dataValues);
+    // //console.log(dbStu.dataValues);
 
-    var studentName = `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`;
+    // var studentName = `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`;
+
+    var studentName = `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`
 
     var busNumber = dbStu.dataValues.Bus.dataValues.bus_number
-
-    var studentInfo= [studentName, busNumber]
-
-      // studentName: studentName,
-      // busNumber: busNumber
 
       // driverName:,
       // driverImage:,
 
     var hbsObject = {
-      studentInfo: studentInfo
+      studentName: studentName,
+      busNumber: busNumber
     };
       
 
     console.log(hbsObject);
 
-    res.render("parent-info-page", hbsObject);
+    res.render("parent-info-page", {
+        helpers: {
+          showStudent: function () { return 'show anything you fucker'; }
+      }
+    })
 
     //res.json(hbsObject)
 

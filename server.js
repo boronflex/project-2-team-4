@@ -25,7 +25,16 @@ app.use(bodyParser.json({
 //testing
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({
-  defaultLayout: "main"
+  defaultLayout: "main",
+  helpers: {
+    toJSON : function(object) {
+      return JSON.stringify(object);
+    }
+    // ,
+    // showObject : function() {
+    //   return 'anything' ;
+    // }
+  }
 }));
 app.set("view engine", "handlebars");
 // //tesing end

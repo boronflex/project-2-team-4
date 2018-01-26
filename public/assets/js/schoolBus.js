@@ -125,10 +125,16 @@ $(document).ready(function() {
     // Send the GET request.
     $.get(`/api/parent-search/${student_first_name}/${student_last_name}`,
       function(data) {
-        //console.log(data)
+        console.log(data)
         console.log("searching for kid");
-        // Reload the page to get the updated list
+
+        //Reload the page to get the updated list
         location.reload();
+
+        //$('#student-name-to-search').text('');
+        
+        //$('#show-full-name').text(data.studentName);
+
       }
     );
   });
