@@ -311,24 +311,39 @@ router.put("/api/drivers", function(req, res) {
 
 //==========Driver Image=============================
 
-router.post("/api/driver", function(req, res) {
+router.post("/api/drivers", function(req, res) {
 
-  console.log(req.body.driver_img);
-  
-  db.driver.update({
-    driver_img: req.body.driver_img
-  },  {
-    where: {
-      id: req.body.id
-    }
+  db.Driver.create({
+    driver_first_name: req.body.driver_first_name,
+    driver_last_name: req.body.driver_last_name,
+    driver_img: req.body.driver_img,
+    driver_comments: req.body.driver_comments
+  }).then(function(dbDriver) {
+    res.json(dbDriver);
   })
-  res.json({
-    message: "Image Send Successful"
+  .catch(function(err) {
+    // Whenever a validation or flag fails, an error is thrown
+    // We can "catch" the error to prevent it from being "thrown", which could crash our node router
+    res.json(err);
   });
 })
 
-// router.get("/driver_img", function(req, res) {
-//   res.sendFile("../public/drag&drop.html");
+//   console.log(req.body.driver_img);
+  
+//   db.driver.update({
+//     driver_img: req.body.driver_img
+//   },  {
+//     where: {
+//       id: req.body.id
+//     }
+//   })
+//   res.json({
+//     message: "Image Send Successful"
+//   });
 // })
+
+// // router.get("/driver_img", function(req, res) {
+// //   res.sendFile("../public/drag&drop.html");
+// // })
 
 module.exports = router;

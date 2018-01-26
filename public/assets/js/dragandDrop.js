@@ -5,7 +5,7 @@
  function openPicker() {
    fsClient.pick({
      fromSources:["local_file_system","url","googledrive","dropbox"],
-     maxFiles:5,
+     maxFiles:5
      //storeTo: { location: '/api/driver' }
    }).then(function(response) {
      // declare this function to handle response

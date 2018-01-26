@@ -48,7 +48,6 @@ app.use("/", routes);
 db.sequelize.sync({
 
   //force: true,
->>>>>>> 1ab56636dbaaaa69215027aa8a2ed5a8faf95b7d
   logging: true
 
 }).then(function() {
