@@ -19,9 +19,11 @@ $(function() {
       address: studentAddress,
       busrider: $("#input-transportation").is(":checked"),
       gender: $("#input-gender").val().trim(),
-      busrider: true, //will need to change this in the future- not set up on form yet
-      BusId: $("#bus-id").val().trim()
+      BusId: parseInt($("#assign-student-bus").val().trim())
     };
+
+    //console.log(studentAddress);
+    console.log(newStudent);
 
 
     // Send the POST request.
@@ -75,12 +77,17 @@ $(function() {
     event.preventDefault();
 
     var newDriver = {
-      driver_first_name: $("#input-first-name").val().trim(),
-      driver_last_name: $("#input-last-name").val().trim(),
-      driver_img: imagex,
+
+      
+      driver_first_name: $("#input-driver-first-name").val().trim(),
+      driver_last_name: $("#input-driver-last-name").val().trim(),
+      driver_img: $("#input-image").val().trim(),
+      //driver_img: imagex,
       driver_comments: $("#input-comments").val().trim(),
+      BusId: parseInt($("#assign-driver-bus").val().trim())
     };
 
+    console.log(newDriver);
 
     // Send the POST request.
     $.ajax("/api/drivers", {

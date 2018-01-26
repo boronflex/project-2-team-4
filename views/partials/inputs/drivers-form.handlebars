@@ -1,19 +1,18 @@
-
 <form class="add-driver-form">
 
-  <h2> Driver Input </h2>
+    <h2> Driver Input </h2>
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="input-first-name">First Name</label>
-            <input type="text" class="form-control" id="input-first-name" placeholder="First Name">
+            <label for="input-driver-first-name">First Name</label>
+            <input type="text" class="form-control" id="input-driver-first-name" placeholder="First Name">
         </div>
     </div>
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="input-last-name">Last Name</label>
-            <input type="text" class="form-control" id="input-last-name" placeholder="Last Name">
+            <label for="input-driver-last-name">Last Name</label>
+            <input type="text" class="form-control" id="input-driver-last-name" placeholder="Last Name">
         </div>
     </div>
 
@@ -29,6 +28,19 @@
             <label for="input-comments">comments</label>
             <input type="text" class="form-control" id="input-comments" placeholder="driver commments">
         </div>
+    </div>
+
+    <div class="form-group col-md-4">
+        <label for="assign-driver-bus">Pick bus</label>
+        <select id="assign-driver-bus" class="form-control">
+            <option selected>Choose...</option>
+            <option>
+                {{#each busNumber}}
+                <option value="{{this.id}}">{{this.bus_number}}</option>
+                {{/each}}
+            </option>
+
+        </select>
     </div>
 
 
