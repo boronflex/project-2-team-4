@@ -1,5 +1,5 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(function() {
+$(document).ready(function() {
 
   //student events########################################
 
@@ -112,3 +112,34 @@ $(function() {
   //end student events######################################################
 
 });
+
+// parent event ################################################################
+
+  $(".search-child-form").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var searchKid = $("#student-name-to-search").val().trim();
+
+    // var regExp = /[^a-zA-Z\s]/;
+
+    // searchKid = searchKid.match(regExp); 
+
+    searchKid = searchKid.split(" ");
+
+    console.log(searchKid);
+
+    var student_first_name = searchKid[0]
+    var student_last_name = searchKid[1]
+
+    // Send the GET request.
+    $.ajax(`/api/parent-search/${student_first_name}/${student_last_name}`, {
+      method: "GET"
+    }).then(
+      function(data) {
+        console.log("searching for kid");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
