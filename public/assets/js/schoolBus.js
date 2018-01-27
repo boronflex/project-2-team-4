@@ -108,8 +108,13 @@ $(document).ready(function() {
       var newDriver = {
         driver_first_name: $("#input-driver-first-name").val().trim(),
         driver_last_name: $("#input-driver-last-name").val().trim(),
-        driver_img: $("#input-image").val().trim(),
+        // driver_img: $("#input-image").val().trim(),
         driver_comments: $("#input-comments").val().trim(),
+
+        //dan's code
+        driver_img: imagex,
+        //dan's code
+
         BusId: parseInt($("#assign-driver-bus").val().trim())
       };
 
@@ -127,6 +132,15 @@ $(document).ready(function() {
         }
       );
     });
+
+    //dan's code
+    $(document).on("click", "#upload", function() {
+      event.preventDefault();
+      console.log("here");
+      openPicker();
+    });
+    //dan's code
+
 
 
     //end student events######################################################

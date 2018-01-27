@@ -116,8 +116,23 @@ list-style: none;
 
 .modal-title {
   color: black;
+  font-size: 36px;
+  text-shadow: 0 0 2px #eeeb4e;
+
+
 }
 
 #modal-body-text {
   color: black;
+  font-size: 24px;
+  text-shadow: 0 0 2px #eeeb4e;
+}
+
+.modal-dialog {
+  border: 1px solid black;
+}
+
+.templatemo-top-menu stuckMenu {
+  border-top: 1px solid #eeeb4e;
+  border-bottom: 1px solid #eeeb4e;
 }
