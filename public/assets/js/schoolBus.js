@@ -121,13 +121,17 @@ $(document).ready(function() {
         //Reload the page to get the updated list
         //location.reload();
 
-        console.log(data)
+        //console.log(data)
 
-        // $('#student-name-to-search').text('');
+        $('#student-name-to-search').text('');
         
-        // $('#show-full-name').text(data.studentName);
+        $('#show-full-name').text(data.studentName);
 
-        //$('#show-bus-number').text(data.studentName);
+        $('#show-bus-number').text(data.busNumber);
+
+        $('#show-driver-name').text(data.driverName);
+
+        $('#show-driver-image').text(data.driverImg);
 
       }
     );
