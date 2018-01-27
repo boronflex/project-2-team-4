@@ -212,11 +212,11 @@ router.get("/api/parent-search/:sname", function (req, res) {
       }
     }).then(function (dbDri) {
 
-      //console.log(dbDri)
+      console.log(dbDri)
 
       chalkAnimation.rainbow("Student Table Queried", 2);
 
-      var driverName = `${dbDri.dataValues.driver_first_name} ${dbStu.dataValues.driver_last_name}`
+      var driverName = `${dbDri.dataValues.driver_first_name} ${dbDri.dataValues.driver_last_name}`
 
       var driverImg = dbDri.dataValues.driver_img
 
