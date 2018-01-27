@@ -159,12 +159,17 @@ $(document).ready(function() {
 
     // searchKid = searchKid.match(regExp);
 
-    searchKid = searchKid.split(" ");
+        //console.log(data)
 
-    console.log(searchKid);
+        $('#student-name-to-search').text('');
+        
+        $('#show-full-name').text(data.studentName);
 
-    var student_first_name = searchKid[0];
-    var student_last_name = searchKid[1];
+        $('#show-bus-number').text(data.busNumber);
+
+        $('#show-driver-name').text(data.driverName);
+
+        $('#show-driver-image').text(data.driverImg);
 
     // Send the GET request.
     $.ajax(`/api/parent-search/${student_first_name}/${student_last_name}`, {
