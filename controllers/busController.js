@@ -162,7 +162,7 @@ router.put("/api/students", function (req, res) {
 });
 
 //route to display bus and driver student is assigned to
-router.get("/api/parent-search/:sname?", function (req, res) {
+router.get("/api/parent-search/:sname", function (req, res) {
   // findAll returns all entries for a table when used with no options
 
   studentName = req.params.sname
@@ -207,12 +207,12 @@ router.get("/api/parent-search/:sname?", function (req, res) {
 
     db.Driver.findOne({
       where: {
-        id: dbStu.dataValues.Bus.dataValues.id,
+        BusId: dbStu.dataValues.Bus.dataValues.id,
         //need to add include here to get bus and driver info
       }
     }).then(function (dbDri) {
 
-      console.log(dbDri)
+      //console.log(dbDri)
 
       chalkAnimation.rainbow("Student Table Queried", 2);
 
@@ -236,7 +236,12 @@ router.get("/api/parent-search/:sname?", function (req, res) {
       res.json(hbsObject)
 
 
-    });
+    })
+    .catch(function (err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node router
+      res.json(err);
+    })
 
 
     // res.render("parent-info-page", { studentInfo: "this doesnt work" })
@@ -244,6 +249,12 @@ router.get("/api/parent-search/:sname?", function (req, res) {
     // res.json(hbsObject)
 
 
+  })
+
+  .catch(function (err) {
+    // Whenever a validation or flag fails, an error is thrown
+    // We can "catch" the error to prevent it from being "thrown", which could crash our node router
+    res.json(err);
   });
 
 });
