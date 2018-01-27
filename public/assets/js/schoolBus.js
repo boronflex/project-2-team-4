@@ -119,11 +119,13 @@ $(document).ready(function() {
         console.log("searching for student");
 
         //Reload the page to get the updated list
-        location.reload();
+        //location.reload();
 
-        $('#student-name-to-search').text('');
+        console.log(data)
+
+        // $('#student-name-to-search').text('');
         
-        $('#show-full-name').text(data.studentName);
+        // $('#show-full-name').text(data.studentName);
 
         //$('#show-bus-number').text(data.studentName);
 

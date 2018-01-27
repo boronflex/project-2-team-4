@@ -19,8 +19,13 @@
 
 <div class="panel-group col-md-12">
   <div class="panel panel-default">
-    <div class="panel-heading">Student</div>
+    <div class="panel-heading">Student{{studentInfo}}</div>
     <div class="panel-body" id="show-student-name">
+
+      <script>
+        var tester = "{{studentInfo}}";
+        console.log(tester)
+      </script>
 
       <h2>{{studentInfo}}</h2>
 

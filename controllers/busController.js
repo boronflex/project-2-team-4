@@ -206,7 +206,7 @@ router.get("/api/parent-search/:sname?", function(req, res) {
 
     //console.log(hbsObject);
 
-    res.render("parent-info-page", { studentInfo: `this doesn't work` })
+    res.render("parent-info-page", { studentInfo: "this doesnt work" })
 
     //res.json(hbsObject)
 
