@@ -6,13 +6,10 @@
    fsClient.pick({
      fromSources:["local_file_system","url","googledrive","dropbox"],
      maxFiles:5
-     //storeTo: { location: '/api/driver' }
    }).then(function(response) {
      // declare this function to handle response
-     //handleFilestack(response);
      console.log(response);
      imagex = response.filesUploaded[0].url
-     
     //  image(response.filesUploaded[0].url)
    });
    

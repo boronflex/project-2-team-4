@@ -37,6 +37,7 @@ $(document).ready(function() {
         location.reload();
       }
     );
+  });
 
     // Send the PUT request. (update student)
 
@@ -52,11 +53,11 @@ $(document).ready(function() {
     //   );
     // });
 
-    //begin on click event for update student Information
+    // //begin on click event for update student Information
     //       $(".update-student-form").on("submit", function(event) {
     //           event.preventDefault();
     // var updatedStudent = {
-    //
+    
     // }
     //         }
 
@@ -84,7 +85,7 @@ $(document).ready(function() {
         function() {
           console.log("added new bus");
           // Reload the page to get the updated list
-          location.reload();
+          //location.reload();
         }
       );
     });
@@ -101,7 +102,7 @@ $(document).ready(function() {
       var newDriver = {
         driver_first_name: $("#input-driver-first-name").val().trim(),
         driver_last_name: $("#input-driver-last-name").val().trim(),
-        driver_img: $("#input-image").val().trim(),
+        driver_img: imagex,
         driver_comments: $("#input-comments").val().trim(),
         BusId: parseInt($("#assign-driver-bus").val().trim())
       };
@@ -121,6 +122,11 @@ $(document).ready(function() {
       );
     });
 
+      $(document).on("click", "#upload", function() {
+        event.preventDefault();
+        console.log("here");
+        openPicker();
+      })
 
     //end student events######################################################
 
@@ -157,4 +163,3 @@ $(document).ready(function() {
       }
     );
   });
-});

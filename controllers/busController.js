@@ -193,6 +193,46 @@ router.put("/api/students", function(req, res) {
     });
 });
 
+//route to display bus and driver student is assigned to
+router.get("/api/parent-search/:fname/:lname", function(req, res) {
+  // findAll returns all entries for a table when used with no options
+
+  studentFirstName = req.params.fname
+  studentLastName = req.params.lname
+  console.log(studentFirstName, studentLastName);
+
+  db.Student.findOne({
+    where: {
+      student_first_name: studentFirstName,
+      student_last_name: studentLastName
+      //need to add include here to get bus and driver info
+    },
+    include: [db.Bus]
+  }).then(function(dbStu) {
+
+    chalkAnimation.rainbow("Student Table Queried", 2);
+
+    //console.log(dbStu.dataValues);
+
+    var hbsObject = {
+
+      studentName: `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`,
+      
+      // driverName:,
+      // driverImage:,
+      busNumber: dbStu.dataValues.Bus.dataValues.bus_number
+
+
+    };
+
+    console.log(hbsObject);
+
+    res.render("parent-info-page", hbsObject);
+
+  });
+
+});
+
 //======================begin buses======================================================================
 
 
@@ -285,7 +325,6 @@ router.post("/api/drivers", function(req, res) {
   // create takes an argument of an object describing the item we want to
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
-  console.log(req.body);
   db.Driver.create({
 
       driver_first_name: req.body.driver_first_name,
@@ -295,7 +334,6 @@ router.post("/api/drivers", function(req, res) {
       BusId: req.body.BusId
 
     }).then(function(dbDriver) {
-      console.log(dbDriver);
       res.json(dbDriver);
     })
     .catch(function(err) {
@@ -344,39 +382,16 @@ router.put("/api/drivers", function(req, res) {
 
 //==========Driver Image=============================
 
-// router.post("/api/drivers", function(req, res) {
+router.post("/api/image", function(req, res) {
 
-//   db.Driver.create({
-//     driver_first_name: req.body.driver_first_name,
-//     driver_last_name: req.body.driver_last_name,
-//     driver_img: req.body.driver_img,
-//     driver_comments: req.body.driver_comments
-//   }).then(function(dbDriver) {
-//     res.json(dbDriver);
-//   })
-//   .catch(function(err) {
-//     // Whenever a validation or flag fails, an error is thrown
-//     // We can "catch" the error to prevent it from being "thrown", which could crash our node router
-//     res.json(err);
-//   });
-//})
+  console.log(req.body.driver_img);
+  res.json({
+    message: "Image Send Successful"
+  });
+})
 
-//   console.log(req.body.driver_img);
-  
-//   db.driver.update({
-//     driver_img: req.body.driver_img
-//   },  {
-//     where: {
-//       id: req.body.id
-//     }
-//   })
-//   res.json({
-//     message: "Image Send Successful"
-//   });
+// router.get("/driverImage", function(req, res) {
+//   res.sendFile("../views/drag&drop.html");
 // })
-
-// // router.get("/driver_img", function(req, res) {
-// //   res.sendFile("../public/drag&drop.html");
-// // })
 
 module.exports = router;
