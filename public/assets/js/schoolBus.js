@@ -118,9 +118,6 @@ $(document).ready(function() {
         console.log(data)
         console.log("searching for student");
 
-        //Reload the page to get the updated list
-        //location.reload();
-
         //console.log(data)
 
         $('#student-name-to-search').text('');
