@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+	 viewBox="0 0 501 501" style="enable-background:new 0 0 501 501;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;}
 	.st1{fill:#0C0C0C;}
-	.st2{fill:url(#Nueva_muestra_de_motivo_5);stroke:url(#Nueva_muestra_de_motivo_5);stroke-miterlimit:10;}
+	.st2{fill:url(#SVGID_1_);stroke:url(#SVGID_2_);stroke-miterlimit:10;}
 </style>
-<pattern  x="-150" y="-150" width="210" height="210" patternUnits="userSpaceOnUse" id="Nueva_muestra_de_motivo_5" viewBox="206.2 -409 210 210" style="overflow:visible;">
+<pattern  x="-149.8" y="-150" width="210" height="210" patternUnits="userSpaceOnUse" id="Nueva_muestra_de_motivo_5" viewBox="206.2 -409 210 210" style="overflow:visible;">
 	<g>
 		<rect x="206.2" y="-409" class="st0" width="210" height="210"/>
 		<g>
@@ -180,7 +180,11 @@
 	</g>
 </pattern>
 <g id="PATTERN">
-	<rect class="st2" width="500" height="500"/>
+	<pattern  id="SVGID_1_" xlink:href="#Nueva_muestra_de_motivo_5" patternTransform="matrix(1 0 0 1 0.2809 0.515)">
+	</pattern>
+	<pattern  id="SVGID_2_" xlink:href="#Nueva_muestra_de_motivo_5" patternTransform="matrix(1 0 0 1 0.2809 0.515)">
+	</pattern>
+	<rect x="0.5" y="0.5" class="st2" width="500" height="500"/>
 </g>
 <g id="OBJECTS">
 </g>
