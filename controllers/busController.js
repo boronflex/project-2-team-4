@@ -31,7 +31,7 @@ router.get("/inputs", function(req, res) {
     }
 
     var hbsObject = {
-      busNumber: busNumberArr,
+      busNumber: busNumberArr
     };
 
     // console.log(hbsObject);
@@ -194,12 +194,23 @@ router.put("/api/students", function(req, res) {
 });
 
 //route to display bus and driver student is assigned to
-router.get("/api/parent-search/:fname/:lname", function(req, res) {
+router.get("/api/parent-search/:sname?", function(req, res) {
   // findAll returns all entries for a table when used with no options
 
-  studentFirstName = req.params.fname
-  studentLastName = req.params.lname
-  console.log(studentFirstName, studentLastName);
+  studentName = req.params.sname
+
+  // var regExp = /[^a-zA-Z\s]/;
+
+  // searchKid = searchKid.match(regExp); 
+
+  studentName = studentName.split(" ");
+
+  console.log(studentName);
+
+  var studentFirstName = studentName[0]
+  var studentLastName = studentName[1]
+
+  //console.log(studentFirstName, studentLastName);
 
   db.Student.findOne({
     where: {
@@ -212,22 +223,25 @@ router.get("/api/parent-search/:fname/:lname", function(req, res) {
 
     chalkAnimation.rainbow("Student Table Queried", 2);
 
-    //console.log(dbStu.dataValues);
+    var studentName = `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`
 
-    var hbsObject = {
+    var busNumber = dbStu.dataValues.Bus.dataValues.bus_number
 
-      studentName: `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`,
-      
       // driverName:,
       // driverImage:,
-      busNumber: dbStu.dataValues.Bus.dataValues.bus_number
 
-
+    var hbsObject = {
+      studentName: studentName,
+      busNumber: busNumber
     };
+      
 
-    console.log(hbsObject);
+    //console.log(hbsObject);
 
-    res.render("parent-info-page", hbsObject);
+    res.render("parent-info-page", { studentInfo: "this doesnt work" })
+
+    //res.json(hbsObject)
+
 
   });
 
