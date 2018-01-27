@@ -113,3 +113,11 @@ list-style: none;
 #submit-student-new {
   margin-top: 25px;
 }
+
+.modal-title {
+  color: black;
+}
+
+#modal-body-text {
+  color: black;
+}
