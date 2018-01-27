@@ -1,3 +1,5 @@
+var newStudent;
+
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function() {
 
@@ -11,7 +13,7 @@ $(document).ready(function() {
 
     console.log(studentAddress);
 
-    var newStudent = {
+    newStudent = {
       student_first_name: $("#input-first-name").val().trim(),
       student_last_name: $("#input-last-name").val().trim(),
       guardian_name: $("#input-guardian-name").val().trim(),
@@ -33,8 +35,14 @@ $(document).ready(function() {
     }).then(
       function() {
         console.log("added new student");
+
+        $(".modal").modal('show');
+        $("#modal-body-text").text('Welcome to CHS, ' + newStudent.student_first_name + '!');
+
+        //the below reload is commented out because it was breaking the modal
+
         //Reload the page to get the updated list
-        location.reload();
+        // location.reload();
       }
     );
 
@@ -155,10 +163,4 @@ $(document).ready(function() {
       }
     );
   });
-});
-
-//modal script
-
-$("#submit-student-new").on("click", function() {
-  $("#modal-student-add").modal('show');
 });
