@@ -1,9 +1,9 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(document).ready(function() {
+$(document).ready(function () {
 
   //student events########################################
 
-  $(".add-student-form").on("submit", function(event) {
+  $(".add-student-form").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -30,19 +30,19 @@ $(document).ready(function() {
       type: "POST",
       data: newStudent
     }).then(
-      function() {
+      function () {
         console.log("added new student");
         // Reload the page to get the updated list
         //location.reload();
       }
-    );
+      );
   });
 
   //end student events######################################################
 
   //bus events########################################
 
-  $(".add-bus-form").on("submit", function(event) {
+  $(".add-bus-form").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -58,12 +58,12 @@ $(document).ready(function() {
       type: "POST",
       data: newBus
     }).then(
-      function() {
+      function () {
         console.log("added new bus");
         // Reload the page to get the updated list
         location.reload();
       }
-    );
+      );
   });
 
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
   //driver events########################################
 
-  $(".add-driver-form").on("submit", function(event) {
+  $(".add-driver-form").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -90,12 +90,12 @@ $(document).ready(function() {
       type: "POST",
       data: newDriver
     }).then(
-      function() {
+      function () {
         console.log("added new driver");
         // Reload the page to get the updated list
         //location.reload();
       }
-    );
+      );
   });
 
 
@@ -105,36 +105,46 @@ $(document).ready(function() {
 
 // parent event ################################################################
 
-  $(".search-child-form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
+$(".search-child-form").on("submit", function (event) {
+  // Make sure to preventDefault on a submit event.
+  event.preventDefault();
 
-    var searchKid = $("#student-name-to-search").val().trim();
+  var searchKid = $("#student-name-to-search").val().trim();
 
-    // var regExp = /[^a-zA-Z\s]/;
+  // var regExp = /[^a-zA-Z\s]/;
 
-    // searchKid = searchKid.match(regExp); 
+  // searchKid = searchKid.match(regExp); 
 
-    searchKid = searchKid.split(" ");
+  searchKid = searchKid.split(" ");
 
-    console.log(searchKid);
+  console.log(searchKid);
 
-    var student_first_name = searchKid[0]
-    var student_last_name = searchKid[1]
+  var student_first_name = searchKid[0]
+  var student_last_name = searchKid[1]
 
-    // Send the GET request.
-    $.get(`/api/parent-search/${student_first_name}/${student_last_name}`,
-      function(data) {
-        console.log(data)
-        console.log("searching for kid");
+  // Send the GET request.
+  $.get(`/api/parent-search/${student_first_name}/${student_last_name}`,
+    function (data) {
+      console.log(data)
+      console.log("searching for kid");
 
-        //Reload the page to get the updated list
-        location.reload();
+      //Reload the page to get the updated list
+      location.reload();
 
-        //$('#student-name-to-search').text('');
-        
-        //$('#show-full-name').text(data.studentName);
+      //$('#student-name-to-search').text('');
 
-      }
-    );
-  });
+      //$('#show-full-name').text(data.studentName);
+
+    }
+  );
+});
+
+(function () {
+
+  var message = prompt('Say Something:', 'Yo yo'),
+
+  echo = document.createElement('div');
+
+  echo.innerHTML = Handlebars.templates.echo({ message: message });
+    document.body.appendChild(echo);
+  }, false);

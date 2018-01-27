@@ -9,6 +9,8 @@ const sequelize = require("sequelize");
 
 const chalkAnimation = require('chalk-animation');
 
+var Promise = global.Promise || require('promise');
+
 const PORT = process.env.PORT || 3000;
 
 
@@ -22,22 +24,56 @@ app.use(bodyParser.json({
   type: "application/vnd.api+json"
 }));
 
-//testing
-// Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({
-  defaultLayout: "main",
-  helpers: {
-    toJSON : function(object) {
-      return JSON.stringify(object);
-    }
-    // ,
-    // showObject : function() {
-    //   return 'anything' ;
-    // }
-  }
-}));
-app.set("view engine", "handlebars");
-// //tesing end
+//begin code from express handlbars github repo
+
+// Create `ExpressHandlebars` instance with a default layout.
+var hbs = exphbs.create({
+  defaultLayout: 'main',
+
+  // Uses multiple partials dirs, templates in "shared/templates/" are shared
+  // with the client-side of the app (see below).
+  partialsDir: [
+      'shared/templates/',
+      'views/partials/'
+  ]
+});
+
+// Register `hbs` as our view engine using its bound `engine()` function.
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+// Middleware to expose the app's shared templates to the cliet-side of the app
+// for pages which need them.
+module.exports = app, hbs, function exposeTemplates(req, res, next) {
+  // Uses the `ExpressHandlebars` instance to get the get the **precompiled**
+  // templates which will be shared with the client-side of the app.
+  hbs.getTemplates('shared/templates/', {
+      cache      : app.enabled('view cache'),
+      precompiled: true
+  }).then(function (templates) {
+      // RegExp to remove the ".handlebars" extension from the template names.
+      var extRegex = new RegExp(hbs.extname + '$');
+
+      // Creates an array of templates which are exposed via
+      // `res.locals.templates`.
+      templates = Object.keys(templates).map(function (name) {
+          return {
+              name    : name.replace(extRegex, ''),
+              template: templates[name]
+          };
+      });
+
+      // Exposes the templates during view rendering.
+      if (templates.length) {
+          res.locals.templates = templates;
+      }
+
+      setImmediate(next);
+  })
+  .catch(next);
+}
+
+//end code from express handlbars github repo
 
 // Static directory
 app.use(express.static("public"));
