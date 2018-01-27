@@ -130,5 +130,9 @@ list-style: none;
 
 .modal-dialog {
   border: 1px solid black;
+}
 
+.templatemo-top-menu stuckMenu {
+  border-top: 1px solid #eeeb4e;
+  border-bottom: 1px solid #eeeb4e;
 }
