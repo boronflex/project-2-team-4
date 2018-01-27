@@ -153,11 +153,16 @@ $(document).ready(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var searchKid = $("#student-name-to-search").val().trim();
+    var searchStudent = $("#student-name-to-search").val().trim();
 
-    // var regExp = /[^a-zA-Z\s]/;
+    // Send the GET request.
+    $.get(`/api/parent-search/${searchStudent}`,
+      function(data) {
+        console.log(data)
+        console.log("searching for student");
 
-    // searchKid = searchKid.match(regExp);
+        //Reload the page to get the updated list
+        //location.reload();
 
         //console.log(data)
 
@@ -171,14 +176,6 @@ $(document).ready(function() {
 
         $('#show-driver-image').text(data.driverImg);
 
-    // Send the GET request.
-    $.ajax(`/api/parent-search/${student_first_name}/${student_last_name}`, {
-      method: "GET"
-    }).then(
-      function(data) {
-        console.log("searching for kid");
-        // Reload the page to get the updated list
-        location.reload();
       }
     );
   });
