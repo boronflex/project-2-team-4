@@ -5,6 +5,8 @@ html {
 
 body {
     background-image: url("../images/Background.svg");
+    background-repeat: repeat;
+    background-size: 500px 500px;
     font-family: Open Sans, Arial, Helvetice Neue, sans-serif;
     font-size: 12px;
     font-weight: 300;
