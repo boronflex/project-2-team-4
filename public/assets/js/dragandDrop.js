@@ -10,6 +10,7 @@ function openPicker() {
     imagex = response.filesUploaded[0].url;
     //  image(response.filesUploaded[0].url)
     return imagex;
+
   });
 
 }

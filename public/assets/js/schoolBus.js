@@ -116,6 +116,7 @@ $(document).ready(function() {
         //dan's code
 
         //BusId: parseInt($("#assign-driver-bus").val().trim()) || 0
+
       };
 
       console.log(newDriver);
@@ -134,6 +135,7 @@ $(document).ready(function() {
     });
 
     //dan's code
+<<<<<<< HEAD
     $(document).on("click", "#upload", async function(event) {
       event.preventDefault();
       console.log("here");
@@ -143,6 +145,16 @@ $(document).ready(function() {
     //dan's code
 
 var upload;
+=======
+    $(document).on("click", "#upload", function() {
+      event.preventDefault();
+      console.log("here");
+      openPicker();
+    });
+    //dan's code
+
+
+>>>>>>> c33d3b24b865edc321833d7523ff573812588546
 
     //end student events######################################################
 
@@ -155,6 +167,7 @@ var upload;
     event.preventDefault();
 
     var searchStudent = $("#student-name-to-search").val().trim();
+<<<<<<< HEAD
 
     // Send the GET request.
     $.get(`/api/parent-search/${searchStudent}`,
@@ -175,6 +188,28 @@ var upload;
 
         $('#show-driver-name').text(data.driverName);
 
+=======
+
+    // Send the GET request.
+    $.get(`/api/parent-search/${searchStudent}`,
+      function(data) {
+        console.log(data)
+        console.log("searching for student");
+
+        //Reload the page to get the updated list
+        //location.reload();
+
+        //console.log(data)
+
+        $('#student-name-to-search').text('');
+        
+        $('#show-full-name').text(data.studentName);
+
+        $('#show-bus-number').text(data.busNumber);
+
+        $('#show-driver-name').text(data.driverName);
+
+>>>>>>> c33d3b24b865edc321833d7523ff573812588546
         $('#show-driver-image').text(data.driverImg);
 
       }
