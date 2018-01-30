@@ -9,7 +9,7 @@ var db = require("../models");
 //html routes=================================================
 
 //home page
-router.get("/", function(req, res) {
+router.get("/", function (req, res) {
   res.render("index");
 });
 
@@ -18,20 +18,20 @@ router.get("/inputs", function(req, res) {
 
   db.Bus.findAll({
 
-  }).then(function(dbBus) {
+  }).then(function (dbBus) {
     chalkAnimation.rainbow("Bus table queried", 2);
     // console.log("dbStu =", dbStu[0].student_first_name);
 
     var busNumber;
     var busNumberArr = [];
-    
+
     for (let busNumber of Object.values(dbBus)) {
       busNumber = busNumber.dataValues//.bus_number;
       busNumberArr.push(busNumber);
     }
 
     var hbsObject = {
-      busNumber: busNumberArr,
+      busNumber: busNumberArr
     };
 
     // console.log(hbsObject);
@@ -83,7 +83,7 @@ function searchAllKids() {
 // });
 
 //parent info name with driver info
-router.get("/parent-info-page", function(req, res) {
+router.get("/parent-info-page", function (req, res) {
   res.render("parent-info-page");
 });
 
@@ -91,13 +91,13 @@ router.get("/parent-info-page", function(req, res) {
 
 //all routes for students table
 // GET route for getting all of the students
-router.get("/driver-info-page", function(req, res) {
+router.get("/driver-info-page", function (req, res) {
   // findAll returns all entries for a table when used with no options
   db.Student.findAll({
     where: {
       busrider: true
     }
-  }).then(function(dbStu) {
+  }).then(function (dbStu) {
     chalkAnimation.rainbow("Student Table Queried", 2);
     // console.log("dbStu =", dbStu[0].student_first_name);
 
@@ -127,16 +127,16 @@ router.post("/inputs", function(req, res) {
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
   db.Student.create({
-      student_first_name: req.body.student_first_name,
-      student_last_name: req.body.student_last_name,
-      gender: req.body.gender,
-      guardian_name: req.body.guardian_name,
-      guardian_email: req.body.guardian_email,
-      address: req.body.address,
-      busrider: req.body.busrider,
-      BusId: req.body.BusId
+    student_first_name: req.body.student_first_name,
+    student_last_name: req.body.student_last_name,
+    gender: req.body.gender,
+    guardian_name: req.body.guardian_name,
+    guardian_email: req.body.guardian_email,
+    address: req.body.address,
+    busrider: req.body.busrider,
+    BusId: req.body.BusId
 
-    }
+  }
     // , {
     //   include:[{
     //     association: buses.BusId
@@ -155,38 +155,38 @@ router.post("/inputs", function(req, res) {
 
 // DELETE route for deleting students. We can get the id of the student to be deleted from
 // req.params.id
-router.delete("/api/students/:id", function(req, res) {
+router.delete("/api/students/:id", function (req, res) {
   // We just have to specify which student we want to destroy with "where"
   db.Student.destroy({
     where: {
       id: req.params.id
     }
-  }).then(function(dbStu) {
+  }).then(function (dbStu) {
     res.json(dbStu);
   });
 });
 
 // PUT route for updating students. We can get the updated student data from req.body
-router.put("/api/students", function(req, res) {
+router.put("/api/students", function (req, res) {
 
   // Update takes in an object describing the properties we want to update, and
   // we use where to describe which objects we want to update
   db.Student.update({
-      student_last_name: req.body.student_last_name,
-      student_first_name: req.body.student_first_name,
-      gender: req.body.gender,
-      guardian_name: req.body.guardian_name,
-      guardian_email: req.body.guardian_email,
-      address: req.body.address,
-      busrider: req.body.Busrider
-    }, {
+    student_last_name: req.body.student_last_name,
+    student_first_name: req.body.student_first_name,
+    gender: req.body.gender,
+    guardian_name: req.body.guardian_name,
+    guardian_email: req.body.guardian_email,
+    address: req.body.address,
+    busrider: req.body.Busrider
+  }, {
       where: {
         id: req.body.id
       }
-    }).then(function(dbStu) {
+    }).then(function (dbStu) {
       res.json(dbStu);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node router
       res.json(err);
@@ -194,12 +194,23 @@ router.put("/api/students", function(req, res) {
 });
 
 //route to display bus and driver student is assigned to
-router.get("/api/parent-search/:fname/:lname", function(req, res) {
+router.get("/api/parent-search/:sname", function (req, res) {
   // findAll returns all entries for a table when used with no options
 
-  studentFirstName = req.params.fname
-  studentLastName = req.params.lname
-  console.log(studentFirstName, studentLastName);
+  studentName = req.params.sname
+
+  // var regExp = /[^a-zA-Z\s]/;
+
+  // searchKid = searchKid.match(regExp); 
+
+  studentName = studentName.split(" ");
+
+  console.log(studentName);
+
+  var studentFirstName = studentName[0]
+  var studentLastName = studentName[1]
+
+  //console.log(studentFirstName, studentLastName);
 
   db.Student.findOne({
     where: {
@@ -208,27 +219,74 @@ router.get("/api/parent-search/:fname/:lname", function(req, res) {
       //need to add include here to get bus and driver info
     },
     include: [db.Bus]
-  }).then(function(dbStu) {
+  }).then(function (dbStu) {
 
     chalkAnimation.rainbow("Student Table Queried", 2);
 
-    //console.log(dbStu.dataValues);
+    var studentName = `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_last_name}`
 
-    var hbsObject = {
+    var busNumber = dbStu.dataValues.Bus.dataValues.bus_number
 
-      studentName: `${dbStu.dataValues.student_first_name} ${dbStu.dataValues.student_first_name}`,
-      
+    console.log(dbStu.dataValues.Bus.dataValues)
+
+    // driverName:,
+    // driverImage:,
+
+    // var hbsObject = {
+    //   studentName: studentName,
+    //   busNumber: busNumber
+    // };
+
+    db.Driver.findOne({
+      where: {
+        BusId: dbStu.dataValues.Bus.dataValues.id,
+        //need to add include here to get bus and driver info
+      }
+    }).then(function (dbDri) {
+
+      console.log(dbDri)
+
+      chalkAnimation.rainbow("Student Table Queried", 2);
+
+      var driverName = `${dbDri.dataValues.driver_first_name} ${dbDri.dataValues.driver_last_name}`
+
+      var driverImg = dbDri.dataValues.driver_img
+
       // driverName:,
       // driverImage:,
-      busNumber: dbStu.dataValues.Bus.dataValues.bus_number
+
+      var hbsObject = {
+        studentName: studentName,
+        busNumber: busNumber,
+        driverName: driverName,
+        driverImg: driverImg
+      };
 
 
-    };
+      //res.render("parent-info-page", { studentInfo: "this doesnt work" })
 
-    console.log(hbsObject);
+      res.json(hbsObject)
 
-    res.render("parent-info-page", hbsObject);
 
+    })
+    .catch(function (err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node router
+      res.json(err);
+    })
+
+
+    // res.render("parent-info-page", { studentInfo: "this doesnt work" })
+
+    // res.json(hbsObject)
+
+
+  })
+
+  .catch(function (err) {
+    // Whenever a validation or flag fails, an error is thrown
+    // We can "catch" the error to prevent it from being "thrown", which could crash our node router
+    res.json(err);
   });
 
 });
@@ -238,9 +296,9 @@ router.get("/api/parent-search/:fname/:lname", function(req, res) {
 
 //all routes for buses table
 // GET route for getting all of the buses
-router.get("/api/buses", function(req, res) {
+router.get("/api/buses", function (req, res) {
   // findAll returns all entries for a table when used with no options
-  db.Bus.findAll({}).then(function(dbBus) {
+  db.Bus.findAll({}).then(function (dbBus) {
     chalkAnimation.rainbow("bus table querried", 2);
     // We have access to the buses as an argument inside of the callback function
     // res.render("index.handlebars");
@@ -249,19 +307,19 @@ router.get("/api/buses", function(req, res) {
 });
 
 // POST route for creating a new bus
-router.post("/api/buses", function(req, res) {
+router.post("/api/buses", function (req, res) {
   // create takes an argument of an object describing the item we want to
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
   db.Bus.create({
-      bus_number: req.body.bus_number,
-      capacity: req.body.capacity,
-      home_base: req.body.home_base
+    bus_number: req.body.bus_number,
+    capacity: req.body.capacity,
+    home_base: req.body.home_base
 
-    }).then(function(dbBus) {
-      res.json(dbBus);
-    })
-    .catch(function(err) {
+  }).then(function (dbBus) {
+    res.json(dbBus);
+  })
+    .catch(function (err) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node router
       res.json(err);
@@ -270,34 +328,34 @@ router.post("/api/buses", function(req, res) {
 
 // DELETE route for deleting bus routes. We can get the id of the bus to be deleted from
 // req.params.id
-router.delete("/api/buses/:id", function(req, res) {
+router.delete("/api/buses/:id", function (req, res) {
   // We just have to specify which student we want to destroy with "where"
   db.Bus.destroy({
     where: {
       id: req.params.id
     }
-  }).then(function(dbBus) {
+  }).then(function (dbBus) {
     res.json(dbBus);
   });
 });
 
 // PUT route for updating students. We can get the updated student data from req.body
-router.put("/api/buses", function(req, res) {
+router.put("/api/buses", function (req, res) {
 
   // Update takes in an object describing the properties we want to update, and
   // we use where to describe which objects we want to update
   db.Bus.update({
-      bus_number: req.body.bus_number,
-      capacity: req.body.capacity,
-      home_base: req.body.home_base
-    }, {
+    bus_number: req.body.bus_number,
+    capacity: req.body.capacity,
+    home_base: req.body.home_base
+  }, {
       where: {
         id: req.body.id
       }
-    }).then(function(dbBus) {
+    }).then(function (dbBus) {
       res.json(dbBus);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node router
       res.json(err);
@@ -310,9 +368,9 @@ router.put("/api/buses", function(req, res) {
 
 //all routes for drivers table
 // GET route for getting all of the drivers
-router.get("/api/drivers", function(req, res) {
+router.get("/api/drivers", function (req, res) {
   // findAll returns all entries for a table when used with no options
-  db.Driver.findAll({}).then(function(dbDriver) {
+  db.Driver.findAll({}).then(function (dbDriver) {
     console.log("drivers query happened");
     // We have access to the drivers as an argument inside of the callback function
     // res.render( "index" );
@@ -321,59 +379,62 @@ router.get("/api/drivers", function(req, res) {
 });
 
 // POST route for creating a new driver
-router.post("/api/drivers", function(req, res) {
+router.post("/api/drivers", function (req, res) {
   // create takes an argument of an object describing the item we want to
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
+  console.log(req.body)
   db.Driver.create({
 
-      driver_first_name: req.body.driver_first_name,
-      driver_last_name: req.body.driver_last_name,
-      driver_img: req.body.driver_img,
-      driver_comments: req.body.driver_comments,
-      BusId: req.body.BusId
+    driver_first_name: req.body.driver_first_name,
+    driver_last_name: req.body.driver_last_name,
+    driver_img: req.body.driver_img,
+    driver_comments: req.body.driver_comments
+    //BusId: req.body.BusId
 
-    }).then(function(dbDriver) {
-      res.json(dbDriver);
-    })
-    .catch(function(err) {
+  }).then(function (dbDriver) {
+    console.log("dbDriver:", dbDriver);
+    res.json(dbDriver);
+  })
+    .catch(function (err) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node router
+      console.log("err:", err);
       res.json(err);
     });
 });
 
 // DELETE route for deleting drivers routes. We can get the id of the driver to be deleted from
 // req.params.id
-router.delete("/api/drivers/:id", function(req, res) {
+router.delete("/api/drivers/:id", function (req, res) {
   // We just have to specify which driver we want to destroy with "where"
   db.Driver.destroy({
     where: {
       id: req.params.id
     }
-  }).then(function(dbDriver) {
+  }).then(function (dbDriver) {
     res.json(dbDriver);
   });
 });
 
 // PUT route for updating drivers. We can get the updated driver data from req.body
-router.put("/api/drivers", function(req, res) {
+router.put("/api/drivers", function (req, res) {
 
   // Update takes in an object describing the properties we want to update, and
   // we use where to describe which objects we want to update
   db.Driver.update({
-      driver_first_name: req.body.driver_first_name,
-      driver_last_name: req.body.driver_last_name,
-      driver_img: req.body.driver_img,
-      driver_comments: req.body.driver_comments
-    }, {
+    driver_first_name: req.body.driver_first_name,
+    driver_last_name: req.body.driver_last_name,
+    driver_img: req.body.driver_img,
+    driver_comments: req.body.driver_comments
+  }, {
       where: {
         id: req.body.id
       }
-    }).then(function(dbDriver) {
+    }).then(function (dbDriver) {
       res.json(dbDriver);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node router
       res.json(err);
@@ -382,7 +443,7 @@ router.put("/api/drivers", function(req, res) {
 
 //==========Driver Image=============================
 
-router.post("/api/image", function(req, res) {
+router.post("/api/image", function (req, res) {
 
   console.log(req.body.driver_img);
   res.json({

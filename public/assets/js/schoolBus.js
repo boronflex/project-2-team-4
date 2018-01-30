@@ -1,3 +1,5 @@
+var newStudent;
+
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function() {
 
@@ -11,7 +13,7 @@ $(document).ready(function() {
 
     console.log(studentAddress);
 
-    var newStudent = {
+    newStudent = {
       student_first_name: $("#input-first-name").val().trim(),
       student_last_name: $("#input-last-name").val().trim(),
       guardian_name: $("#input-guardian-name").val().trim(),
@@ -33,14 +35,18 @@ $(document).ready(function() {
     }).then(
       function() {
         console.log("added new student");
+
+        $(".modal").modal('show');
+        $("#modal-body-text").text('Welcome to CHS, ' + newStudent.student_first_name + '!');
+
+        //the below reload is commented out because it was breaking the modal
+
         //Reload the page to get the updated list
-        location.reload();
+        // location.reload();
       }
     );
   });
-
     // Send the PUT request. (update student)
-
     //   $.ajax("/inputs", {
     //     type: "POST",
     //     data: newStudent
@@ -53,11 +59,11 @@ $(document).ready(function() {
     //   );
     // });
 
-    // //begin on click event for update student Information
+    //begin on click event for update student Information
     //       $(".update-student-form").on("submit", function(event) {
     //           event.preventDefault();
     // var updatedStudent = {
-    
+    //
     // }
     //         }
 
@@ -85,7 +91,7 @@ $(document).ready(function() {
         function() {
           console.log("added new bus");
           // Reload the page to get the updated list
-          //location.reload();
+          location.reload();
         }
       );
     });
@@ -102,9 +108,14 @@ $(document).ready(function() {
       var newDriver = {
         driver_first_name: $("#input-driver-first-name").val().trim(),
         driver_last_name: $("#input-driver-last-name").val().trim(),
-        driver_img: imagex,
+        // driver_img: $("#input-image").val().trim(),
         driver_comments: $("#input-comments").val().trim(),
-        BusId: parseInt($("#assign-driver-bus").val().trim())
+
+        //dan's code
+        driver_img: upload
+        //dan's code
+
+        //BusId: parseInt($("#assign-driver-bus").val().trim()) || 0
       };
 
       console.log(newDriver);
@@ -122,44 +133,51 @@ $(document).ready(function() {
       );
     });
 
-      $(document).on("click", "#upload", function() {
-        event.preventDefault();
-        console.log("here");
-        openPicker();
-      })
+    //dan's code
+    $(document).on("click", "#upload", async function(event) {
+      event.preventDefault();
+      console.log("here");
+       upload = await openPicker();
+      console.log(upload);
+    });
+    //dan's code
+
+var upload;
 
     //end student events######################################################
 
-  });
+  
 
   // parent event ################################################################
-
 
   $(".search-child-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var searchKid = $("#student-name-to-search").val().trim();
-
-    // var regExp = /[^a-zA-Z\s]/;
-
-    // searchKid = searchKid.match(regExp);
-
-    searchKid = searchKid.split(" ");
-
-    console.log(searchKid);
-
-    var student_first_name = searchKid[0];
-    var student_last_name = searchKid[1];
+    var searchStudent = $("#student-name-to-search").val().trim();
 
     // Send the GET request.
-    $.ajax(`/api/parent-search/${student_first_name}/${student_last_name}`, {
-      method: "GET"
-    }).then(
+    $.get(`/api/parent-search/${searchStudent}`,
       function(data) {
-        console.log("searching for kid");
-        // Reload the page to get the updated list
-        location.reload();
+        console.log(data)
+        console.log("searching for student");
+
+        //Reload the page to get the updated list
+        //location.reload();
+
+        //console.log(data)
+
+        $('#student-name-to-search').text('');
+        
+        $('#show-full-name').text(data.studentName);
+
+        $('#show-bus-number').text(data.busNumber);
+
+        $('#show-driver-name').text(data.driverName);
+
+        $('#show-driver-image').text(data.driverImg);
+
       }
     );
   });
+});
