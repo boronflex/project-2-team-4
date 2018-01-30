@@ -383,20 +383,23 @@ router.post("/api/drivers", function (req, res) {
   // create takes an argument of an object describing the item we want to
   // insert into our table. In this case we just we pass in an object with a text
   // and complete property (req.body)
+  console.log(req.body)
   db.Driver.create({
 
     driver_first_name: req.body.driver_first_name,
     driver_last_name: req.body.driver_last_name,
     driver_img: req.body.driver_img,
-    driver_comments: req.body.driver_comments,
-    BusId: req.body.BusId
+    driver_comments: req.body.driver_comments
+    //BusId: req.body.BusId
 
   }).then(function (dbDriver) {
+    console.log("dbDriver:", dbDriver);
     res.json(dbDriver);
   })
     .catch(function (err) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node router
+      console.log("err:", err);
       res.json(err);
     });
 });

@@ -1,7 +1,7 @@
 var fsClient = filestack.init('ArKUq7TzLSaKrbTJi6WB9z');
 
 function openPicker() {
-  fsClient.pick({
+  return fsClient.pick({
     fromSources: ["local_file_system", "url", "googledrive", "dropbox"],
     maxFiles: 5
   }).then(function(response) {
@@ -9,6 +9,8 @@ function openPicker() {
     console.log(response);
     imagex = response.filesUploaded[0].url;
     //  image(response.filesUploaded[0].url)
+    return imagex;
+
   });
 
 }

@@ -45,7 +45,7 @@ $(document).ready(function() {
         // location.reload();
       }
     );
-
+  });
     // Send the PUT request. (update student)
     //   $.ajax("/inputs", {
     //     type: "POST",
@@ -112,10 +112,11 @@ $(document).ready(function() {
         driver_comments: $("#input-comments").val().trim(),
 
         //dan's code
-        driver_img: imagex,
+        driver_img: upload
         //dan's code
 
-        BusId: parseInt($("#assign-driver-bus").val().trim())
+        //BusId: parseInt($("#assign-driver-bus").val().trim()) || 0
+
       };
 
       console.log(newDriver);
@@ -134,6 +135,17 @@ $(document).ready(function() {
     });
 
     //dan's code
+<<<<<<< HEAD
+    $(document).on("click", "#upload", async function(event) {
+      event.preventDefault();
+      console.log("here");
+       upload = await openPicker();
+      console.log(upload);
+    });
+    //dan's code
+
+var upload;
+=======
     $(document).on("click", "#upload", function() {
       event.preventDefault();
       console.log("here");
@@ -142,10 +154,11 @@ $(document).ready(function() {
     //dan's code
 
 
+>>>>>>> c33d3b24b865edc321833d7523ff573812588546
 
     //end student events######################################################
 
-  });
+  
 
   // parent event ################################################################
 
@@ -154,6 +167,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     var searchStudent = $("#student-name-to-search").val().trim();
+<<<<<<< HEAD
 
     // Send the GET request.
     $.get(`/api/parent-search/${searchStudent}`,
@@ -174,6 +188,28 @@ $(document).ready(function() {
 
         $('#show-driver-name').text(data.driverName);
 
+=======
+
+    // Send the GET request.
+    $.get(`/api/parent-search/${searchStudent}`,
+      function(data) {
+        console.log(data)
+        console.log("searching for student");
+
+        //Reload the page to get the updated list
+        //location.reload();
+
+        //console.log(data)
+
+        $('#student-name-to-search').text('');
+        
+        $('#show-full-name').text(data.studentName);
+
+        $('#show-bus-number').text(data.busNumber);
+
+        $('#show-driver-name').text(data.driverName);
+
+>>>>>>> c33d3b24b865edc321833d7523ff573812588546
         $('#show-driver-image').text(data.driverImg);
 
       }
